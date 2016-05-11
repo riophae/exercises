@@ -13,7 +13,9 @@ class ToReadable extends Readable {
     if (res.done) {
       this.push(null)
     } else {
-      this.push(`${res.value}\n`)
+      setTimeout(() => {
+        this.push(`${res.value}\n`)
+      }, 250)
     }
   }
 }
