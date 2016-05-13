@@ -2,7 +2,7 @@ const { Writable } = require('stream')
 
 const writable = new Writable()
 
-writable._write = function (data, enc, next) { // eslint-disable-line no-underscore-dangle
+writable._write = function (data, enc, next) {
   process.stdout.write(data.toString().toUpperCase())
   next()
 }

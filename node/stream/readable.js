@@ -31,7 +31,7 @@ class ToReadable extends Readable {
 }
 
 const iterable = (function* (limit) {
-  while (limit--) { // eslint-disable-line no-param-reassign
+  while (limit--) {
     yield Math.random()
   }
 }(25))
