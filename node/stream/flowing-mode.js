@@ -17,7 +17,7 @@ const readable = new Readable({
 readable.resume()
 
 setTimeout(() => {
-  // since the `data` event handler is attached after the stream has started to flow,
-  // the first two chunks of data are missed
+  // since there are no `data` event handlers attached and no destinations piped to,
+  // the data flowed in first two seconds are missed
   readable.on('data', (data) => process.stdout.write(data))
 }, 2000)
