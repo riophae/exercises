@@ -17,7 +17,6 @@ http.createServer((req, res) => {
         return
       }
 
-      res.write(typeof data)
-      res.end()
+      res.end(typeof data)
     })
 }).listen(1337)
