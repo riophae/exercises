@@ -23,7 +23,7 @@ function compareArr(arrX, arrY) {
 
 const deepEqual = module.exports = function deepEqual(value, other) {
   if (value === other) return true
-  if (value == null) return other == null
+  if (value == null || other == null) return value == other // eslint-disable-line eqeqeq
 
   const valueTypeTag = getTypeTag(value)
   const otherTypeTag = getTypeTag(other)
@@ -49,7 +49,10 @@ const deepEqual = module.exports = function deepEqual(value, other) {
     const valueKeys = Object.keys(value)
     const otherKeys = Object.keys(other)
     if (valueKeys.length !== otherKeys.length) return false
-    return valueKeys.every((key) => deepEqual(value[key], other[key]))
+    return valueKeys.every((key) => (
+      other.hasOwnProperty(key) &&
+      deepEqual(value[key], other[key])
+    ))
   }
 
   return false
