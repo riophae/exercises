@@ -46,6 +46,7 @@ test('non-objects', function (t) {
   t.notOk(equal('3', 3))
   t.notOk(equal('3', [3]))
   t.ok(equal(NaN, NaN))
+  t.ok(equal(true, new Boolean(true)))
   t.end()
 })
 

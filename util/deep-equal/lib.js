@@ -34,6 +34,8 @@ const deepEqual = module.exports = function deepEqual(value, other) {
     return Number(value) === Number(other)
   } else if (valueTypeTag === 'String') {
     return String(value) === String(other)
+  } else if (valueTypeTag === 'Boolean') {
+    return Boolean(value) === Boolean(other)
   } else if (valueTypeTag === 'Date') {
     return Date(value) === Date(other)
   } else if (valueTypeTag === 'Function') {
