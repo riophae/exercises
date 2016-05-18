@@ -58,6 +58,15 @@ test('arguments class', function (t) {
   t.end()
 })
 
+test('functions', function (t) {
+  const fnX = function () {}
+  const fnY = function () {}
+  t.ok(equal(fnX, fnX))
+  t.notOk(equal(fnX, fnY))
+  t.notOk(equal(fnX, '2'))
+  t.end()
+})
+
 test('dates', function (t) {
   const d0 = new Date(1387585278000)
   const d1 = new Date('Fri Dec 20 2013 16:21:18 GMT-0800 (PST)')
