@@ -38,6 +38,8 @@ const deepEqual = module.exports = function deepEqual(value, other) {
     return Date(value) === Date(other)
   } else if (valueTypeTag === 'Function') {
     return false
+  } else if (valueTypeTag === 'RegExp') {
+    return String(value) === String(other)
   } else if (valueTypeTag === 'Array') {
     return compareArr(value, other)
   } else if (isArrayLike(value)) {

@@ -68,11 +68,11 @@ test('arguments class', function (t) {
 })
 
 test('functions', function (t) {
-  const fnX = function () {}
-  const fnY = function () {}
-  t.ok(equal(fnX, fnX))
-  t.notOk(equal(fnX, fnY))
-  t.notOk(equal(fnX, '2'))
+  const fn0 = function () {}
+  const fn1 = function () {}
+  t.ok(equal(fn0, fn0))
+  t.notOk(equal(fn0, fn1))
+  t.notOk(equal(fn0, '2'))
   t.end()
 })
 
@@ -80,6 +80,15 @@ test('dates', function (t) {
   const d0 = new Date(1387585278000)
   const d1 = new Date('Fri Dec 20 2013 16:21:18 GMT-0800 (PST)')
   t.ok(equal(d0, d1))
+  t.end()
+})
+
+test('regexps', function (t) {
+  const re0 = /aBc/i
+  const re1 = /aBc/g
+  const re2 = /aBc/i
+  t.notOk(equal(re0, re1))
+  t.ok(equal(re0, re2))
   t.end()
 })
 
