@@ -11,7 +11,8 @@ function isArrayLike(thing) {
   return (
     thing &&
     typeof thing === 'object' &&
-    typeof thing.length === 'number'
+    typeof thing.length === 'number' &&
+    thing.length >= 0
   )
 }
 
