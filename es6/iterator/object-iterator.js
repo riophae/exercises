@@ -7,10 +7,10 @@ Object.prototype[Symbol.iterator] = function () {
 
   return {
     next() {
-      const key = keys[idx]
+      let key
       return idx === keys.length
         ? { done: true }
-        : (idx++, { value: [obj[key], key], done: false })
+        : (key = keys[idx], ++idx, { value: [obj[key], key], done: false })
     },
   }
 }
