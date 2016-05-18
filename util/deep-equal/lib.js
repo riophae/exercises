@@ -38,7 +38,10 @@ const deepEqual = module.exports = function deepEqual(value, other) {
     return Date(value) === Date(other)
   } else if (valueTypeTag === 'Function') {
     return false
-  } else if (valueTypeTag === 'Array' || isArrayLike(value)) {
+  } else if (valueTypeTag === 'Array') {
+    return compareArr(value, other)
+  } else if (isArrayLike(value)) {
+    if (!isArrayLike(other)) return false
     return compareArr(value, other)
   } else if (valueTypeTag === 'Object') {
     const valueKeys = Object.keys(value)
