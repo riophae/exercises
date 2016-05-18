@@ -11,6 +11,7 @@ test('equal', function (t) {
     a: [2, 3],
     b: [4],
   }))
+  t.ok(equal([3, 4, 5], [3, 4, 5]))
   t.end()
 })
 
@@ -22,6 +23,14 @@ test('not equal', function (t) {
     x: 5,
     y: 6,
   }))
+  t.notOk(equal({
+    a: 1,
+    b: 2,
+  }, {
+    a: 3,
+    c: 4,
+  }))
+  t.notOk(equal([3, 4], [3, 4, 5]))
   t.end()
 })
 
