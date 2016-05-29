@@ -59,6 +59,12 @@ const all = get(function *() {
 }())
 assert.deepEqual(all, DATA)
 
+const specificedIndexes = [3, 0]
+const specificed = get(function *() {
+  yield* specificedIndexes.map((index) => ({ index }))
+}())
+assert.deepEqual(specificed, specificedIndexes.map((idx) => DATA[idx]))
+
 const acceptLessThanThree = (n) => n < 3
 const lessThanThree = get(function *() {
   let i = 0
@@ -84,12 +90,6 @@ const firstTwoLessThenThree = get(function *() {
   }
 }())
 assert.deepEqual(firstTwoLessThenThree, [2, 1])
-
-const specificedIndexes = [3, 0]
-const specificed = get(function *() {
-  yield* specificedIndexes.map((index) => ({ index }))
-}())
-assert.deepEqual(specificed, specificedIndexes.map((idx) => DATA[idx]))
 
 const firstTheThreeSameInterfacingOnes = get(function *() {
   let i = 0
