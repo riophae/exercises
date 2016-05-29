@@ -13,7 +13,8 @@ function get(idxGenerator) {
   let args
   const accepted = []
 
-  while ((i = idxGenerator.next({ curr, prev, accepted })) && !i.done) {
+  args = { curr, prev, accepted }
+  while ((i = idxGenerator.next(args)) && !i.done) {
     const {
       index,
       done = alwaysFalse,
