@@ -75,7 +75,7 @@ class Chessboard {
     }
 
     if (!this._isBlank(x, y)) {
-      throw new Error(`Can not place chess at (${x}, ${y}) since it's not blank there!`)
+      throw new Error(`Can not put chess piece at (${x}, ${y}) since it's not blank there!`)
     }
 
     this._data[x][y] = this._currentType
