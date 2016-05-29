@@ -10,6 +10,7 @@ function get(idxGenerator) {
   let i
   let curr
   let prev
+  let args
   const accepted = []
 
   while ((i = idxGenerator.next({ curr, prev, accepted })) && !i.done) {
@@ -22,8 +23,8 @@ function get(idxGenerator) {
 
     prev = curr
     curr = DATA[index]
+    args = { curr, prev, accepted }
 
-    const args = { curr, prev, accepted }
     if (done(args)) {
       if (!i.done) idxGenerator.return()
       break
