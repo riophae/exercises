@@ -23,16 +23,17 @@ function get(idxGenerator) {
     prev = curr
     curr = DATA[index]
 
-    if (done({ curr, prev, accepted })) {
+    const args = { curr, prev, accepted }
+    if (done(args)) {
       if (!i.done) idxGenerator.return()
       break
     }
 
-    if (flush({ curr, prev, accepted })) {
+    if (flush(args)) {
       accepted.length = 0
     }
 
-    if (accept({ curr, prev, accepted })) {
+    if (accept(args)) {
       accepted.push(curr)
     }
   }
