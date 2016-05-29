@@ -61,10 +61,10 @@ const all = get(function *() {
 assert.deepEqual(all, DATA)
 
 const specifiedIndexes = [3, 0]
-const specified = get(function *() {
+const specifiedOnes = get(function *() {
   yield* specifiedIndexes.map((index) => ({ index }))
 }())
-assert.deepEqual(specified, specifiedIndexes.map((idx) => DATA[idx]))
+assert.deepEqual(specifiedOnes, specifiedIndexes.map((idx) => DATA[idx]))
 
 const acceptLessThanThree = (n) => n < 3
 const onesLessThanThree = get(function *() {
