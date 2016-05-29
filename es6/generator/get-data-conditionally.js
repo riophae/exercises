@@ -66,7 +66,7 @@ const specified = get(function *() {
 assert.deepEqual(specified, specifiedIndexes.map((idx) => DATA[idx]))
 
 const acceptLessThanThree = (n) => n < 3
-const lessThanThree = get(function *() {
+const onesLessThanThree = get(function *() {
   let i = 0
 
   while (i < DATA.length) {
@@ -74,9 +74,9 @@ const lessThanThree = get(function *() {
     i++
   }
 }())
-assert.deepEqual(lessThanThree, DATA.filter(acceptLessThanThree))
+assert.deepEqual(onesLessThanThree, DATA.filter(acceptLessThanThree))
 
-const firstTwoLessThenThree = get(function *() {
+const firstTwoLessThenThreeOnes = get(function *() {
   let i = 0
 
   while (i < DATA.length) {
@@ -88,7 +88,7 @@ const firstTwoLessThenThree = get(function *() {
     i++
   }
 }())
-assert.deepEqual(firstTwoLessThenThree, [2, 1])
+assert.deepEqual(firstTwoLessThenThreeOnes, [2, 1])
 
 const firstTheSameThreeInterfacingOnes = get(function *() {
   let i = 0
