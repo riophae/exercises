@@ -31,7 +31,7 @@ function get(idxGenerator) {
     args = { curr, prev, accepted }
 
     if (done(args)) {
-      if (!i.done) idxGenerator.return()
+      idxGenerator.return()
       break
     }
 
