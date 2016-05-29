@@ -13,20 +13,26 @@ function get(idxGenerator) {
   const accepted = []
 
   while ((i = idxGenerator.next({ curr, prev, accepted })) && !i.done) {
-    const { index, done, flush, accept } = i.value
+    const {
+      index = alwaysFalse,
+      done = alwaysFalse,
+      flush = alwaysFalse,
+      accept = alwaysTrue,
+    } = i.value
+
     prev = curr
     curr = DATA[index]
 
-    if ((done || alwaysFalse)({ curr, prev, accepted })) {
+    if (done({ curr, prev, accepted })) {
       if (!i.done) idxGenerator.return()
       break
     }
 
-    if ((flush || alwaysFalse)({ curr, prev, accepted })) {
+    if (flush({ curr, prev, accepted })) {
       accepted.length = 0
     }
 
-    if ((accept || alwaysTrue)({ curr, prev, accepted })) {
+    if (accept({ curr, prev, accepted })) {
       accepted.push(curr)
     }
   }
