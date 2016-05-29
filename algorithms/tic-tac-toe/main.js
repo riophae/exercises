@@ -2,9 +2,9 @@ const _ = ' '
 const X = 'X'
 const O = 'O'
 
-const SIZE = 3
 const BEGIN = -1
-const END = BEGIN + SIZE - 1
+const END = -BEGIN
+const SIZE = END - BEGIN + 1
 
 class Chessboard {
   constructor() {
