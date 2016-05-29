@@ -82,8 +82,8 @@ const firstTwoLessThenThreeOnes = get(function *() {
   while (i < DATA.length) {
     yield {
       index: i,
-      accept: ({ curr }) => curr < 3,
       done: ({ accepted }) => accepted.length === 2,
+      accept: ({ curr }) => curr < 3,
     }
     i++
   }
@@ -96,9 +96,9 @@ const firstTheSameThreeInterfacingOnes = get(function *() {
   while (i < DATA.length) {
     yield {
       index: i,
-      accept: ({ curr, prev, accepted }) => accepted.length === 0 || curr === prev,
-      flush: ({ curr, prev }) => curr !== prev,
       done: ({ accepted }) => accepted.length === 3,
+      flush: ({ curr, prev }) => curr !== prev,
+      accept: ({ curr, prev, accepted }) => accepted.length === 0 || curr === prev,
     }
     i++
   }
