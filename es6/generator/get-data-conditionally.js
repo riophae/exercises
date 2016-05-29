@@ -15,11 +15,15 @@ function get(idxGenerator) {
 
   while ((i = idxGenerator.next({ curr, prev, accepted })) && !i.done) {
     const {
-      index = alwaysFalse,
+      index,
       done = alwaysFalse,
       flush = alwaysFalse,
       accept = alwaysTrue,
     } = i.value
+
+    if (typeof index !== 'number') {
+      throw new Error('Invalid argument: `index` is not provided or not a number')
+    }
 
     prev = curr
     curr = DATA[index]
