@@ -70,8 +70,7 @@ const lessThanThree = get(function *() {
   let i = 0
 
   while (i < DATA.length) {
-    const { curr } = yield { index: i, accept: pickCurr(acceptLessThanThree) }
-    assert.equal(curr, DATA[i])
+    yield { index: i, accept: pickCurr(acceptLessThanThree) }
     i++
   }
 }())
