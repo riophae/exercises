@@ -6,7 +6,7 @@ const alwaysTrue = () => true
 const alwaysFalse = () => false
 const pickCurr = (acceptFn) => ({ curr }) => acceptFn(curr)
 
-function get(idxGenerator) {
+function read(idxGenerator) {
   let i
   let curr
   let prev
@@ -18,7 +18,7 @@ function get(idxGenerator) {
     const {
       index,
       done = alwaysFalse,
-      flush = alwaysFalse,
+      reset = alwaysFalse,
       accept = alwaysTrue,
     } = i.value
 
@@ -35,7 +35,7 @@ function get(idxGenerator) {
       break
     }
 
-    if (flush(args)) {
+    if (reset(args)) {
       accepted.length = 0
     }
 
@@ -47,7 +47,7 @@ function get(idxGenerator) {
   return accepted
 }
 
-const all = get(function *() {
+const all = read(function *() {
   let i = 0
 
   while (i < DATA.length) {
@@ -61,13 +61,13 @@ const all = get(function *() {
 assert.deepEqual(all, DATA)
 
 const specifiedIndexes = [3, 0]
-const specifiedOnes = get(function *() {
+const specifiedOnes = read(function *() {
   yield* specifiedIndexes.map((index) => ({ index }))
 }())
 assert.deepEqual(specifiedOnes, specifiedIndexes.map((idx) => DATA[idx]))
 
 const acceptLessThanThree = (n) => n < 3
-const onesLessThanThree = get(function *() {
+const onesLessThanThree = read(function *() {
   let i = 0
 
   while (i < DATA.length) {
@@ -77,7 +77,7 @@ const onesLessThanThree = get(function *() {
 }())
 assert.deepEqual(onesLessThanThree, DATA.filter(acceptLessThanThree))
 
-const firstTwoLessThenThree = get(function *() {
+const firstTwoLessThenThree = read(function *() {
   let i = 0
 
   while (i < DATA.length) {
@@ -91,14 +91,14 @@ const firstTwoLessThenThree = get(function *() {
 }())
 assert.deepEqual(firstTwoLessThenThree, [2, 1])
 
-const sameFirstThreeInterfacingOnes = get(function *() {
+const sameFirstThreeInterfacingOnes = read(function *() {
   let i = 0
 
   while (i < DATA.length) {
     yield {
       index: i,
       done: ({ accepted }) => accepted.length === 3,
-      flush: ({ curr, prev }) => curr !== prev,
+      reset: ({ curr, prev }) => curr !== prev,
       accept: ({ curr, prev, accepted }) => accepted.length === 0 || curr === prev,
     }
     i++
