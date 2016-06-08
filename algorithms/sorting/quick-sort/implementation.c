@@ -51,12 +51,10 @@ void validate() {
 }
 
 int main() {
-  int i;
+  int t;
 
-  scanf("%d", &n);
-
-  for (i = 0; i < n; i++) {
-    scanf("%d", &numbers[i]);
+  while ((t = scanf("%d", &numbers[n])) != 0) {
+    n++;
   }
 
   quick_sort(0, n - 1);
