@@ -30,9 +30,7 @@ void quick_sort(int left, int right) {
   while (l < r) {
     while (r > l && numbers[r] >= base) r--;
     while (l < r && numbers[l] <= base) l++;
-    if (l < r) {
-      swap(l, r);
-    }
+    swap(l, r);
   }
 
   if (numbers[left] > numbers[l]) {
