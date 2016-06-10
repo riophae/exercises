@@ -23,9 +23,9 @@ void swap(int x, int y) {
 
 void quick_sort(int left, int right) {
   if (left >= right) return;
-  int l = left + 1;
-  int r = right;
   int base = numbers[left];
+  int l = left;
+  int r = right;
 
   while (l < r) {
     while (r > l && numbers[r] >= base) r--;
@@ -33,9 +33,7 @@ void quick_sort(int left, int right) {
     swap(l, r);
   }
 
-  if (numbers[left] > numbers[l]) {
-    swap(left, l);
-  }
+  swap(left, l);
 
   quick_sort(left, l - 1);
   quick_sort(l + 1, right);
