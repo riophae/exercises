@@ -10,7 +10,7 @@
  期望的结果为 615947283
 #endif
 
-int password[] = { 6, 3, 1, 7, 5, 8, 9, 2, 4 };
+int password[LEN] = { 6, 3, 1, 7, 5, 8, 9, 2, 4 };
 int qq[LEN];
 
 int main() {
