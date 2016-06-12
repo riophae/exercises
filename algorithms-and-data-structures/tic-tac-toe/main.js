@@ -18,6 +18,18 @@ class Chessboard {
     }
   }
 
+  _get(idxGen) {
+    const items = []
+    let i
+
+    while ((i = idxGen.next()) && !i.done) {
+      const { x, y } = i.value
+      items.push(this._data[x][y])
+    }
+
+    return items
+  }
+
   _getRowItems(x) {
     const items = []
     this._iterate((y) => {
