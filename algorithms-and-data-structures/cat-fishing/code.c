@@ -28,13 +28,13 @@ int main() {
     }
   }
 
-  int curr_card;
+  int curr_card, is_in_pool;
   int n = 0;
-  int is_in_pool;
   while (players[0].head < players[0].tail && players[1].head < players[1].tail) {
     for (i = 0; i < 2; i++) {
       curr_card = players[i].data[players[i].head++];
       printf("#%d Current Player: %d\tCurrent card: %d\n", ++n, i, curr_card);
+
       is_in_pool = 0;
       for (j = 0; j < pool.top; j++) {
         if (pool.data[j] == curr_card) {
@@ -42,7 +42,9 @@ int main() {
           break;
         }
       }
+
       pool.data[pool.top++] = curr_card;
+
       if (!is_in_pool) {
         printf("Card %d is not in pool\n", curr_card);
       } else {
