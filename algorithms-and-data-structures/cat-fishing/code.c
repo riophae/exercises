@@ -22,7 +22,7 @@ int main() {
   for (i = 0; i < 2; i++) {
     players[i].head = players[i].tail = 0;
     for (j = 0; j < 6; j++) {
-      printf("Player%d#%d: ", i, j);
+      printf("Player#%d-%d: ", i, j);
       scanf("%d", &players[i].data[players[i].tail++]);
       printf("\n");
     }
@@ -33,7 +33,7 @@ int main() {
   while (players[0].head < players[0].tail && players[1].head < players[1].tail) {
     for (i = 0; i < 2; i++) {
       curr_card = players[i].data[players[i].head++];
-      printf("#%d Current Player: %d\tCurrent card: %d\n", ++n, i, curr_card);
+      printf("#%d Player#%d\tCurrent card: %d\n", ++n, i, curr_card);
 
       is_in_pool = 0;
       for (j = 0; j < pool.top; j++) {
@@ -60,7 +60,7 @@ int main() {
         }
       }
 
-      printf("Total in Pool: %d \tPool: ", pool.top);
+      printf("Total in pool: %d \tPool: ", pool.top);
       for (j = 0; j < pool.top; j++) {
         printf("%d ", pool.data[j]);
       }
@@ -79,7 +79,7 @@ int main() {
 
   for (i = 0; i < 2; i++) {
     if (players[i].head < players[i].tail) {
-      printf("Player%d wins!\n", i);
+      printf("Player#%d wins!\n", i);
       break;
     }
   }
