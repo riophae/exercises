@@ -23,7 +23,7 @@ int main() {
     players[i].head = players[i].tail = 0;
     for (j = 0; j < 6; j++) {
       printf("Player%d#%d: ", i, j);
-      scanf("%d", &(players[i].data[players[i].tail++]));
+      scanf("%d", &players[i].data[players[i].tail++]);
       printf("\n");
     }
   }
