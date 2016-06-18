@@ -67,7 +67,7 @@ int main() {
       printf("\n");
 
       printf("Cards of Player#%d: ", i);
-      for(j = players[i].head; j < players[i].tail; j++) {
+      for (j = players[i].head; j < players[i].tail; j++) {
         printf("%d ", players[i].data[j]);
       }
       printf("\n");
