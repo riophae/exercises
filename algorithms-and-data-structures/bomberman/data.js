@@ -1,5 +1,5 @@
-const rawDataStr = `
-#############
+const rawDataStr =
+`#############
 #GG.GGG#GGG.#
 ###.#G#G#G#G#
 #.......#..G#
@@ -11,6 +11,8 @@ const rawDataStr = `
 #...G#GGG.GG#
 #G#.#G#G#.#G#
 #GG.GGG#G.GG#
-#############
-`
-module.exports = rawDataStr.split('\n').map((line) => line.split(''))
+#############`
+
+const data = rawDataStr.split('\n').map((line) => line.split(''))
+
+module.exports = data
