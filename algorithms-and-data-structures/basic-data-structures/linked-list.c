@@ -7,31 +7,42 @@ struct node {
 };
 
 int main() {
-  int n;
+  int count;
   printf("How many numbers would you like to enter? ");
-  scanf("%d", &n);
+  scanf("%d", &count);
 
-  struct node *head, *prev, *curr;
+  struct node *head, *p, *q;
   head = NULL;
 
-  for (int i = 0; i < n; i++) {
-    curr = (struct node *)malloc(sizeof(struct node));
+  int num;
+  for (int i = 0; i < count; i++) {
+    p = (struct node *)malloc(sizeof(struct node));
     printf("#%d: ", i);
-    scanf("%d", &(curr->data));
-    curr->next = NULL;
+    scanf("%d", &num);
+    p->data = num;
+    p->next = NULL;
     if (head == NULL) {
-      head = curr;
+      head = p;
     } else {
-      prev->next = curr;
+      if (num < head->data) {
+        p->next = head;
+        head = p;
+      } else {
+        q = head;
+        while (q->next != NULL && q->next->data < num) {
+          q = q->next;
+        }
+        p->next = q->next;
+        q->next = p;
+      }
     }
-    prev = curr;
   }
 
-  curr = head;
+  p = head;
   while (1) {
-    if (curr != NULL) {
-      printf("%d ", curr->data);
-      curr = curr->next;
+    if (p != NULL) {
+      printf("%d ", p->data);
+      p = p->next;
     } else {
       break;
     }
