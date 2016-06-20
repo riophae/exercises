@@ -39,13 +39,9 @@ int main() {
   }
 
   p = head;
-  while (1) {
-    if (p != NULL) {
-      printf("%d ", p->data);
-      p = p->next;
-    } else {
-      break;
-    }
+  while (p != NULL) {
+    printf("%d ", p->data);
+    p = p->next;
   }
   printf("\n");
 
