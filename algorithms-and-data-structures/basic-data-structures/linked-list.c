@@ -8,7 +8,7 @@ struct node {
 
 int main() {
   int n;
-  printf("How many number would you like to enter? ");
+  printf("How many numbers would you like to enter? ");
   scanf("%d", &n);
 
   struct node *head, *prev, *curr;
