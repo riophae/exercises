@@ -1,4 +1,3 @@
-const _ = require('lodash')
 const data = require('./data')
 
 const indexGenerators = [
@@ -21,15 +20,15 @@ function isBlank([x, y]) {
 }
 
 function sumEnemies([x, y]) {
-  return _.sum(indexGenerators.map((gen) => {
+  return indexGenerators.reduce((sum, gen) => {
     let i = 0
     let pos = gen([x, y])
     while (!isWall(pos)) {
       if (isEnemy(pos)) i++
       pos = gen(pos)
     }
-    return i
-  }))
+    return sum + i
+  }, 0)
 }
 
 function main() {
