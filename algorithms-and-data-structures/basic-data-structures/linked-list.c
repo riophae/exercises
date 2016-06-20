@@ -41,7 +41,9 @@ int main() {
   p = head;
   while (p != NULL) {
     printf("%d ", p->data);
+    q = p;
     p = p->next;
+    free(q);
   }
   printf("\n");
 
