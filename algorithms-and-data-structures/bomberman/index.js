@@ -47,7 +47,8 @@ function main() {
     }
   }
 
-  console.log(`Pole value is ${poleValue} at (${polePos[0]}, ${polePos[1]})`)
+  const [x, y] = polePos
+  console.log(`Pole value is ${poleValue} at (${x}, ${y})`)
 }
 
 main()
