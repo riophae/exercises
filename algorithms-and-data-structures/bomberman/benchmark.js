@@ -4,12 +4,8 @@ const basic = require('./basic')
 const reversed = require('./reversed')
 
 new Suite()
-.add('basic', () => {
-  basic()
-})
-.add('reversed', () => {
-  reversed()
-})
+.add('basic', basic)
+.add('reversed', reversed)
 .on('cycle', (evt) => {
   console.log(evt.target)
 })
