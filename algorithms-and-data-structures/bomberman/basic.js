@@ -9,10 +9,9 @@ const {
 function sumEnemies([x, y]) {
   return positionGenerators.reduce((sum, gen) => {
     let i = 0
-    let pos = gen([x, y])
-    while (!isWall(pos)) {
+    let pos = [x, y]
+    while (!isWall(pos = gen(pos))) {
       if (isEnemy(pos)) i++
-      pos = gen(pos)
     }
     return sum + i
   }, 0)
