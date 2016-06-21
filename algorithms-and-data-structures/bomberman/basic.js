@@ -1,26 +1,14 @@
 const data = require('./data')
-
-const indexGenerators = [
-  ([x, y]) => [x + 1, y],
-  ([x, y]) => [x - 1, y],
-  ([x, y]) => [x, y + 1],
-  ([x, y]) => [x, y - 1],
-]
-
-function isWall([x, y]) {
-  return data[x][y] === '#'
-}
-
-function isEnemy([x, y]) {
-  return data[x][y] === 'G'
-}
-
-function isBlank([x, y]) {
-  return data[x][y] === '.'
-}
+const {
+  isWall,
+  isEnemy,
+  isBlank,
+  positionGenerators,
+  printResult,
+} = require('./util')
 
 function sumEnemies([x, y]) {
-  return indexGenerators.reduce((sum, gen) => {
+  return positionGenerators.reduce((sum, gen) => {
     let i = 0
     let pos = gen([x, y])
     while (!isWall(pos)) {
@@ -47,8 +35,7 @@ function main() {
     }
   }
 
-  const [x, y] = polePos
-  console.log(`Pole value is ${poleValue} at (${x}, ${y})`)
+  printResult(polePos, poleValue)
 }
 
 main()
