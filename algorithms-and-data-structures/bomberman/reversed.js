@@ -4,6 +4,7 @@ const {
   isEnemy,
   isBlank,
   positionGenerators,
+  printResult,
 } = require('./util')
 
 function main() {
@@ -45,5 +46,5 @@ function main() {
 module.exports = main
 
 if (module === require.main) {
-  main()
+  printResult(main())
 }

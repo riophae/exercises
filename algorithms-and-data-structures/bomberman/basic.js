@@ -4,6 +4,7 @@ const {
   isEnemy,
   isBlank,
   positionGenerators,
+  printResult,
 } = require('./util')
 
 function sumEnemies([x, y]) {
@@ -42,5 +43,5 @@ function main() {
 module.exports = main
 
 if (module === require.main) {
-  main()
+  printResult(main())
 }
