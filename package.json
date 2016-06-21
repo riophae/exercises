@@ -9,6 +9,7 @@
   "author": "Riophae Lee",
   "license": "ISC",
   "devDependencies": {
+    "benchmark": "^2.1.0",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.7.0",

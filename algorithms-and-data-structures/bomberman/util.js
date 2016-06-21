@@ -19,15 +19,9 @@ const positionGenerators = [
   ([x, y]) => [x, y - 1],
 ]
 
-function printResult(polePos, poleValue) {
-  const [x, y] = polePos
-  console.log(`Pole value is ${poleValue} at (${x}, ${y})`)
-}
-
 module.exports = {
   isWall,
   isEnemy,
   isBlank,
   positionGenerators,
-  printResult,
 }
