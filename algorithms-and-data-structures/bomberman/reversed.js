@@ -7,7 +7,7 @@ const {
 } = require('./util')
 
 function main() {
-  const result = data.map((row) => row.map(() => 0))
+  const result = data.map(() => [])
 
   for (let x = 0; x < data.length; x++) {
     for (let y = 0; y < data[x].length; y++) {
@@ -18,7 +18,7 @@ function main() {
         while (!isWall(bPos = gen(bPos))) {
           if (isBlank(bPos)) {
             const [bX, bY] = bPos
-            result[bX][bY]++
+            result[bX][bY] = (result[bX][bY] || 0) + 1
           }
         }
       })
