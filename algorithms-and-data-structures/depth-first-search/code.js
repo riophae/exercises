@@ -3,7 +3,7 @@ const boxes = Array(n)
 const book = Array(n)
 
 function dfs(step) {
-  if (step === n + 1) {
+  if (step === n) {
     console.log(boxes.join(''))
     return
   }
@@ -19,7 +19,7 @@ function dfs(step) {
 }
 
 function main() {
-  dfs(1)
+  dfs(0)
 }
 
 main()
