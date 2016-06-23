@@ -14,7 +14,7 @@ function read(idxGenerator) {
   const accepted = []
 
   args = { curr, prev, accepted }
-  while ((i = idxGenerator.next(args)) && !i.done) {
+  while ((i = idxGenerator.next(args), !i.done)) {
     const {
       index,
       done = alwaysFalse,
