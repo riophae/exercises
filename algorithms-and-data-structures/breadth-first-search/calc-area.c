@@ -45,6 +45,10 @@ dequeue() {
   head++;
 }
 
+void do_book(pos p) {
+  book[p.x][p.y] = 1;
+}
+
 int
 main() {
   int i;
@@ -53,6 +57,8 @@ main() {
   entry.x = 5;
   entry.y = 7;
   enqueue(entry);
+  do_book(entry);
+  area++;
 
   pos curr, next;
   while (head < tail) {
@@ -69,9 +75,9 @@ main() {
         continue;
       }
 
-      book[next.x][next.y] = 1;
-      area++;
       enqueue(next);
+      do_book(next);
+      area++;
     }
 
     dequeue();
