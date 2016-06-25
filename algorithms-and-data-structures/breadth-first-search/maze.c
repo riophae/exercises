@@ -46,7 +46,7 @@ int
 main() {
   int i;
 
-  enqueue(entry_x, entry_x, 0);
+  enqueue(entry_x, entry_y, 0);
 
   int next_x, next_y, next_step;
   int flag = 0;
