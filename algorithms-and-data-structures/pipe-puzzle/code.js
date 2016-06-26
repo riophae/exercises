@@ -1,33 +1,12 @@
-let flag = false
+/* eslint-disable no-use-before-define */
+
+let flag = false // indicates whether the puzzle has been solved
 
 class Pos {
   constructor(x, y) {
     this.x = x
     this.y = y
   }
-}
-
-const DIR_T = 0
-const DIR_R = 1
-const DIR_B = 2
-const DIR_L = 3
-
-function getOppositeDir(dir) {
-  switch (dir) {
-    case DIR_T: return DIR_B
-    case DIR_R: return DIR_L
-    case DIR_B: return DIR_T
-    case DIR_L: return DIR_R
-    default:
-      throw new Error('You should not reach here.')
-  }
-}
-
-const dirMoveMap = {
-  [DIR_T]: (pos) => new Pos(pos.x - 1, pos.y),
-  [DIR_R]: (pos) => new Pos(pos.x, pos.y + 1),
-  [DIR_B]: (pos) => new Pos(pos.x + 1, pos.y),
-  [DIR_L]: (pos) => new Pos(pos.x, pos.y - 1),
 }
 
 class Element {
@@ -69,6 +48,29 @@ class Pipe extends Element {
   getOutputDir(inputDir) {
     return this.dirs.find((dir) => getOppositeDir(dir) !== inputDir)
   }
+}
+
+const DIR_T = 0
+const DIR_R = 1
+const DIR_B = 2
+const DIR_L = 3
+
+function getOppositeDir(dir) {
+  switch (dir) {
+    case DIR_T: return DIR_B
+    case DIR_R: return DIR_L
+    case DIR_B: return DIR_T
+    case DIR_L: return DIR_R
+    default:
+      throw new Error('You should not reach here.')
+  }
+}
+
+const dirMoveMap = {
+  [DIR_T]: (pos) => new Pos(pos.x - 1, pos.y),
+  [DIR_R]: (pos) => new Pos(pos.x, pos.y + 1),
+  [DIR_B]: (pos) => new Pos(pos.x + 1, pos.y),
+  [DIR_L]: (pos) => new Pos(pos.x, pos.y - 1),
 }
 
 const L1 = new Pipe({
@@ -145,7 +147,7 @@ const map = `
 .split('\n')
 .map((row) => row.split('').map(convertPatternToPipe))
 
-function outOfMap(pos) {
+function isOutOfMap(pos) {
   return (
     pos.x < 0 ||
     pos.y < 0 ||
@@ -178,7 +180,7 @@ function dfs(currPos, prevDir) {
     console.log('Success!')
     return
   }
-  if (outOfMap(currPos)) return
+  if (isOutOfMap(currPos)) return
   if (book[currPos.x][currPos.y]) return
 
   const curr = map[currPos.x][currPos.y]
