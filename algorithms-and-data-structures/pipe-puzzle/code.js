@@ -148,6 +148,7 @@ function isOutOfMap(pos) {
 const book = map.map((row) => row.map(() => false))
 
 const entryPos = new Pos(0, 0)
+const entryDir = DIR_R
 const exitPos = new Pos(map.length - 1, map[0].length)
 
 function isSamePos(posA, posB) {
@@ -162,7 +163,7 @@ function printMap() {
 }
 
 function dfs(currPos, prevDir) {
-  if (flag) return
+  if (flag || book[currPos.x][currPos.y]) return
   if (isSamePos(currPos, exitPos)) {
     flag = true
     printMap()
@@ -170,7 +171,6 @@ function dfs(currPos, prevDir) {
     return
   }
   if (isOutOfMap(currPos)) return
-  if (book[currPos.x][currPos.y]) return
 
   const curr = map[currPos.x][currPos.y]
   if (!curr.isPipe()) return
@@ -189,7 +189,7 @@ function dfs(currPos, prevDir) {
 }
 
 function main() {
-  dfs(entryPos, DIR_R)
+  dfs(entryPos, entryDir)
 }
 
 main()
