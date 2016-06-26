@@ -26,7 +26,7 @@ class Element {
     return false
   }
 
-  canPipe() {
+  canPipe(/* inputDir */) {
     return false
   }
 }
