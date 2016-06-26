@@ -118,7 +118,7 @@ function getRotated(pipe) {
   throw new Error('You should not reach here.')
 }
 
-function convertPatternToPipe(pattern) {
+function convertPatternToElement(pattern) {
   return (
     pipes.find((pipe) => pipe.getPattern() === pattern) ||
     Tree
@@ -134,7 +134,7 @@ const map = `
 `
 .trim()
 .split('\n')
-.map((row) => row.split('').map(convertPatternToPipe))
+.map((row) => row.split('').map(convertPatternToElement))
 
 function isOutOfMap(pos) {
   return (
