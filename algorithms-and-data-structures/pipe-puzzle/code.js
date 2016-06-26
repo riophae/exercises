@@ -42,29 +42,18 @@ class Pipe extends Element {
   }
 
   canPipe(inputDir) {
-    return this.dirs.some((dir) => getOppositeDir(dir) === inputDir)
+    return this.dirs.some((dir) => -dir === inputDir)
   }
 
   getOutputDir(inputDir) {
-    return this.dirs.find((dir) => getOppositeDir(dir) !== inputDir)
+    return this.dirs.find((dir) => -dir !== inputDir)
   }
 }
 
-const DIR_T = 0
-const DIR_R = 1
-const DIR_B = 2
-const DIR_L = 3
-
-function getOppositeDir(dir) {
-  switch (dir) {
-    case DIR_T: return DIR_B
-    case DIR_R: return DIR_L
-    case DIR_B: return DIR_T
-    case DIR_L: return DIR_R
-    default:
-      throw new Error('You should not reach here.')
-  }
-}
+const DIR_T = 1
+const DIR_R = 2
+const DIR_B = -1
+const DIR_L = -2
 
 const dirMoveMap = {
   [DIR_T]: (pos) => new Pos(pos.x - 1, pos.y),
