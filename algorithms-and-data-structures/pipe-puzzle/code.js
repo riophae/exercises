@@ -136,7 +136,7 @@ const map = `
 .split('\n')
 .map((row) => row.split('').map(convertPatternToElement))
 
-function isOutOfMap(pos) {
+function isOutsideMap(pos) {
   return (
     pos.x < 0 ||
     pos.y < 0 ||
@@ -170,7 +170,7 @@ function dfs(currPos, prevDir) {
     console.log('Success!')
     return
   }
-  if (isOutOfMap(currPos)) return
+  if (isOutsideMap(currPos)) return
 
   const curr = map[currPos.x][currPos.y]
   if (!curr.isPipe()) return
