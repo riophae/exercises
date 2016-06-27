@@ -91,7 +91,7 @@ const firstTwoLessThenThree = read(function *() {
 }())
 assert.deepEqual(firstTwoLessThenThree, [2, 1])
 
-const sameFirstThreeInterfacingOnes = read(function *() {
+const firstThreeSameInterfacingOnes = read(function *() {
   let i = 0
 
   while (i < DATA.length) {
@@ -104,4 +104,4 @@ const sameFirstThreeInterfacingOnes = read(function *() {
     i++
   }
 }())
-assert.deepEqual(sameFirstThreeInterfacingOnes, [1, 1, 1])
+assert.deepEqual(firstThreeSameInterfacingOnes, [1, 1, 1])
