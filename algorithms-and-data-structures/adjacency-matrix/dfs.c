@@ -1,11 +1,8 @@
 #include <stdio.h>
 
-#define H 5
-#define W 5
-
 #define N 5
 
-int matrix[H][W] = {
+int matrix[N][N] = {
   { 0, 1, 1, -1, 1 },
   { 1, 0, -1, 1, -1 },
   { 1, -1, 0, -1, 1 },
