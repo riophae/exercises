@@ -55,7 +55,7 @@ main() {
   for (i = 0; i < m; i++) {
     printf("#%d: ", i);
     scanf("%d %d %d", &a, &b, &c);
-    map[a][b] = c;
+    map[a][b] = map[b][a] = c;
     printf("\n");
   }
 
