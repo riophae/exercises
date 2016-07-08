@@ -25,25 +25,31 @@ main() {
   printf("Original:\n");
   printMap();
 
-  int needOptimization = 1;
-  int i = 0;
-  while (needOptimization) {
-    needOptimization = 0;
+  int needOptimizationInNextCycle = 1;
+  int cycle = 0;
+  while (needOptimizationInNextCycle) {
+    needOptimizationInNextCycle = 0;
     printf("\n");
-    printf("Optimization#%d:\n", i++);
-    for (int j = 0; j < SIZE; j++) {
-      for (int k = 0; k < SIZE; k++) {
-        for (int l = 0; l < SIZE; l++) {
-          int newDist = map[j][l] + map[l][k];
-          if (newDist < map[j][k]) {
-            map[j][k] = newDist;
-            printf("Found shorter path between P%d and P%d: P%d -> P%d -> P%d\n", j, k, j, l, k);
-            needOptimization = 1;
+    printf("Optimization#%d:\n", cycle++);
+    for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) {
+        for (int k = 0; k < SIZE; k++) {
+          int oldDist = map[i][j];
+          int newDist = map[i][k] + map[k][j];
+          if (newDist < map[i][j]) {
+            map[i][j] = newDist;
+            printf("Found shorter path between P%d and P%d: P%d -> P%d -> P%d, distance shortened from %d to %d\n",
+              i, j, i, k, j, oldDist, newDist);
+            needOptimizationInNextCycle = 1;
           }
         }
       }
     }
-    printMap();
+    if (needOptimizationInNextCycle) {
+      printMap();
+    } else {
+      printf("No optimization made in this cycle.\n");
+    }
   }
 
   return 0;
