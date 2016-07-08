@@ -25,9 +25,12 @@ main() {
   printf("Original:\n");
   printMap();
 
-  for (int i = 0; i < SIZE; i++) {
+  int needOptimization = 1;
+  int i = 0;
+  while (needOptimization) {
+    needOptimization = 0;
     printf("\n");
-    printf("Optimization#%d:\n", i);
+    printf("Optimization#%d:\n", i++);
     for (int j = 0; j < SIZE; j++) {
       for (int k = 0; k < SIZE; k++) {
         for (int l = 0; l < SIZE; l++) {
@@ -35,6 +38,7 @@ main() {
           if (newDist < map[j][k]) {
             map[j][k] = newDist;
             printf("Found shorter path between P%d and P%d: P%d -> P%d -> P%d\n", j, k, j, l, k);
+            needOptimization = 1;
           }
         }
       }
