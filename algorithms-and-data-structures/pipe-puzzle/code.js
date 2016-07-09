@@ -7,6 +7,13 @@ class Pos {
     this.x = x
     this.y = y
   }
+
+  static isSame(posA, posB) {
+    return (
+      posA.x === posB.x &&
+      posA.y === posB.y
+    )
+  }
 }
 
 class Element {
@@ -18,16 +25,16 @@ class Element {
     return this.pattern
   }
 
-  toString() {
-    return this.getPattern()
-  }
-
   isPipe() {
     return false
   }
 
   canPipe(/* inputDir */) {
     return false
+  }
+
+  toString() {
+    return this.getPattern()
   }
 }
 
@@ -52,8 +59,8 @@ class Pipe extends Element {
 
 const DIR_T = 1
 const DIR_R = 2
-const DIR_B = -1
-const DIR_L = -2
+const DIR_B = -DIR_T
+const DIR_L = -DIR_R
 
 const dirMoveMap = {
   [DIR_T]: (pos) => new Pos(pos.x - 1, pos.y),
@@ -92,6 +99,10 @@ const I2 = new Pipe({
   dirs: [DIR_T, DIR_B],
 })
 
+const Tree = new Element({
+  pattern: '♣',
+})
+
 const L_PIPES = [
   L1, L2, L3, L4,
 ]
@@ -100,14 +111,15 @@ const I_PIPES = [
   I1, I2,
 ]
 
-const pipes = [
+const PIPES = [
   ...L_PIPES,
   ...I_PIPES,
 ]
 
-const Tree = new Element({
-  pattern: '♣',
-})
+const ELEMENTS = [
+  ...PIPES,
+  Tree,
+]
 
 function getRotated(pipe) {
   if (L_PIPES.includes(pipe)) {
@@ -119,10 +131,7 @@ function getRotated(pipe) {
 }
 
 function convertPatternToElement(pattern) {
-  return (
-    pipes.find((pipe) => pipe.getPattern() === pattern) ||
-    Tree
-  )
+  return ELEMENTS.find((pipe) => pipe.getPattern() === pattern)
 }
 
 const map = `
@@ -145,26 +154,19 @@ function isOutsideMap(pos) {
   )
 }
 
+function printMap() {
+  console.log(map.map((row) => row.join('')).join('\n'))
+}
+
 const book = map.map((row) => row.map(() => false))
 
 const entryPos = new Pos(0, 0)
 const entryDir = DIR_R
 const exitPos = new Pos(map.length - 1, map[0].length)
 
-function isSamePos(posA, posB) {
-  return (
-    posA.x === posB.x &&
-    posA.y === posB.y
-  )
-}
-
-function printMap() {
-  console.log(map.map((row) => row.join('')).join('\n'))
-}
-
 function dfs(currPos, prevDir) {
   if (flag || book[currPos.x][currPos.y]) return
-  if (isSamePos(currPos, exitPos)) {
+  if (Pos.isSame(currPos, exitPos)) {
     flag = true
     printMap()
     console.log('Success!')
