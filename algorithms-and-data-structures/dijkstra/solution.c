@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define SIZE 6
+#define SIZE     6
 #define INFINITY 999999
 
 int map[6][6] = {
@@ -55,7 +55,7 @@ main() {
   printf("\n");
 
   printf("Result: \n");
-  for (i = 0; i < SIZE; i++) {
+  for (i = 0; i < N; i++) {
     printf("%d\t", dist[i]);
   }
   printf("\n");
