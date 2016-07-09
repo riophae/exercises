@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define SIZE     6
+#define N     6
 #define INFINITY 999999
 
 int map[6][6] = {
@@ -11,21 +11,21 @@ int map[6][6] = {
   { INFINITY, INFINITY, INFINITY, INFINITY, 0,        4        },
   { INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, 0        },
 };
-int book[SIZE];
-int dist[SIZE];
+int book[N];
+int dist[N];
 int entry = 0;
 
 int
 main() {
   int i, j;
 
-  for (i = 0; i < SIZE; i++) {
+  for (i = 0; i < N; i++) {
     dist[i] = map[entry][i];
   }
 
-  for (i = 0; i < SIZE; i++) {
+  for (i = 0; i < N; i++) {
     int curr = -1;
-    for (j = 0; j < SIZE; j++) {
+    for (j = 0; j < N; j++) {
       if (j == entry || book[j]) continue;
       if (curr == -1 || dist[j] < dist[curr]) {
         curr = j;
@@ -35,7 +35,7 @@ main() {
     book[curr] = 1;
     printf("Shortest: #%d\n", curr);
 
-    for (j = 0; j < SIZE; j++) {
+    for (j = 0; j < N; j++) {
       if (j == curr || map[curr][j] == INFINITY) continue;
       if (dist[curr] + map[curr][j] < dist[j]) {
         printf("Found shorter path between %d and %d: %d -> %d -> %d\n",
@@ -46,8 +46,8 @@ main() {
   }
   printf("\n");
 
-  for (i = 0; i < SIZE; i++) {
-    for (j = 0; j < SIZE; j++) {
+  for (i = 0; i < N; i++) {
+    for (j = 0; j < N; j++) {
       printf("%d\t", map[i][j]);
     }
     printf("\n");
