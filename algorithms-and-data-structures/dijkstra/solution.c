@@ -40,7 +40,7 @@ main() {
       if (dist[curr] + map[curr][j] < dist[j]) {
         printf("Found shorter path between %d and %d: %d -> %d -> %d\n",
           entry, j, entry, curr, j);
-        dist[j] = map[entry][j] = dist[curr] + map[curr][j];
+        dist[j] = dist[curr] + map[curr][j];
       }
     }
   }
