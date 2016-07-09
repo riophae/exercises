@@ -3,7 +3,7 @@
 #define N     6
 #define INFINITY 999999
 
-int map[6][6] = {
+int map[N][N] = {
   { 0       , 1       , 12,       INFINITY, INFINITY, INFINITY },
   { INFINITY, 0       , 9,        3,        INFINITY, INFINITY },
   { INFINITY, INFINITY, 0,        INFINITY, 5,        INFINITY },
