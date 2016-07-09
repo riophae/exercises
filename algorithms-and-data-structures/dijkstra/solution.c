@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define N     6
+#define N        6
 #define INFINITY 999999
 
 int map[N][N] = {
