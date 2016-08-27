@@ -6,6 +6,18 @@ const SIZE = 3
 const BEGIN = -1
 const END = 1
 
+function from(x) {
+  return {
+    to(y) {
+      const arr = []
+      for (let i = x; i <= y; i++) {
+        arr.push(i)
+      }
+      return arr
+    },
+  }
+}
+
 class Chessboard {
   constructor() {
     this._data = this._initChessboard()
@@ -18,16 +30,8 @@ class Chessboard {
     }
   }
 
-  _get(idxGen) {
-    const items = []
-    let i
-
-    while ((i = idxGen.next()) && !i.done) {
-      const { x, y } = i.value
-      items.push(this._data[x][y])
-    }
-
-    return items
+  _get(indexes) {
+    return indexes.map(([x, y]) => this._data[x][y])
   }
 
   _getRowItems(x) {
@@ -93,7 +97,9 @@ class Chessboard {
     this._data[x][y] = this._currentType
     this._switchType()
 
-    return !this.isEnded()
+    if (this._isEnded()) {
+      this._end()
+    }
   }
 
   print() {
@@ -107,8 +113,29 @@ class Chessboard {
     console.log()
   }
 
-  isEnded() {
+  _isEnded() {
+    const metaIndexes = from(BEGIN).to(END)
+    const horizontalIndexes = metaIndexes.map((x) => metaIndexes.map((y) => [x, y]))
+    const verticalIndexes = metaIndexes.map((x) => metaIndexes.map((y) => [y, x]))
+    const tiltedIndexes = [
+      metaIndexes.map((i) => [i, i]),
+      metaIndexes.map((i) => [i, -i]),
+    ]
+    const arrayOfIndexes = [
+      ...horizontalIndexes,
+      ...verticalIndexes,
+      ...tiltedIndexes,
+    ]
 
+    return arrayOfIndexes.some((indexes) => {
+      const set = new Set(this._get(indexes))
+      return set.size === 1 && !set.has(_)
+    })
+  }
+
+  _end() {
+    this._ended = true
+    console.log('Game end')
   }
 }
 
@@ -116,4 +143,10 @@ const board = new Chessboard()
 board.set(0, 0)
 board.print()
 board.set(0, 1)
+board.print()
+board.set(-1, 0)
+board.print()
+board.set(-1, 1)
+board.print()
+board.set(1, 0)
 board.print()
