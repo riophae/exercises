@@ -25,11 +25,12 @@ function main() {
   for (let x = 0; x < data.length; x++) {
     for (let y = 0; y < data[x].length; y++) {
       const currPos = [x, y]
-      if (!isBlank(currPos)) continue
-      const sum = sumEnemies(currPos)
-      if (poleValue < sum) {
-        polePos = currPos
-        poleValue = sum
+      if (isBlank(currPos)) {
+        const sum = sumEnemies(currPos)
+        if (poleValue < sum) {
+          polePos = currPos
+          poleValue = sum
+        }
       }
     }
   }

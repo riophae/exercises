@@ -5,8 +5,8 @@ const book = []
 
 function convertNumber([x, y, z]) {
   return (
-    x * 100 +
-    y * 10 +
+    (x * 100) +
+    (y * 10) +
     z
   )
 }

@@ -47,7 +47,7 @@ function read(idxGenerator) {
   return accepted
 }
 
-const all = read(function *() {
+const all = read(function* () {
   let i = 0
 
   while (i < DATA.length) {
@@ -61,13 +61,13 @@ const all = read(function *() {
 assert.deepEqual(all, DATA)
 
 const specifiedIndexes = [3, 0]
-const specifiedOnes = read(function *() {
+const specifiedOnes = read(function* () {
   yield* specifiedIndexes.map((index) => ({ index }))
 }())
 assert.deepEqual(specifiedOnes, specifiedIndexes.map((idx) => DATA[idx]))
 
 const acceptLessThanThree = (n) => n < 3
-const onesLessThanThree = read(function *() {
+const onesLessThanThree = read(function* () {
   let i = 0
 
   while (i < DATA.length) {
@@ -77,7 +77,7 @@ const onesLessThanThree = read(function *() {
 }())
 assert.deepEqual(onesLessThanThree, DATA.filter(acceptLessThanThree))
 
-const firstTwoLessThenThree = read(function *() {
+const firstTwoLessThenThree = read(function* () {
   let i = 0
 
   while (i < DATA.length) {
@@ -91,7 +91,7 @@ const firstTwoLessThenThree = read(function *() {
 }())
 assert.deepEqual(firstTwoLessThenThree, [2, 1])
 
-const firstThreeSameInterfacingOnes = read(function *() {
+const firstThreeSameInterfacingOnes = read(function* () {
   let i = 0
 
   while (i < DATA.length) {

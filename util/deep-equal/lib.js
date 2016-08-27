@@ -21,6 +21,10 @@ function compareArr(arrX, arrY) {
   return arrEvery.call(arrX, (_, idx) => deepEqual(arrX[idx], arrY[idx]))
 }
 
+function hasOwn(obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj, key)
+}
+
 const deepEqual = module.exports = function deepEqual(value, other) {
   if (value === other) return true
   if (value == null || other == null) return value == other // eslint-disable-line eqeqeq
@@ -52,7 +56,7 @@ const deepEqual = module.exports = function deepEqual(value, other) {
     const otherKeys = Object.keys(other)
     if (valueKeys.length !== otherKeys.length) return false
     return valueKeys.every((key) => (
-      other.hasOwnProperty(key) &&
+      hasOwn(other, key) &&
       deepEqual(value[key], other[key])
     ))
   }

@@ -10,6 +10,6 @@ new Suite()
   console.log(evt.target)
 })
 .on('complete', function () {
-  console.log(`Fastest is ${this.filter('fastest').map('name')}`)
+  console.log(`The fastest one is ${this.filter('fastest').map('name')}`)
 })
 .run()

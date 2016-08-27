@@ -13,16 +13,17 @@ function main() {
   for (let x = 0; x < data.length; x++) {
     for (let y = 0; y < data[x].length; y++) {
       const pos = [x, y]
-      if (!isEnemy(pos)) continue
-      positionGenerators.forEach((gen) => {
-        let bPos = pos.slice()
-        while (!isWall(bPos = gen(bPos))) {
-          if (isBlank(bPos)) {
-            const [bX, bY] = bPos
-            result[bX][bY] = (result[bX][bY] || 0) + 1
+      if (isEnemy(pos)) {
+        positionGenerators.forEach((gen) => {
+          let bPos = pos.slice()
+          while (!isWall(bPos = gen(bPos))) {
+            if (isBlank(bPos)) {
+              const [bX, bY] = bPos
+              result[bX][bY] = (result[bX][bY] || 0) + 1
+            }
           }
-        }
-      })
+        })
+      }
     }
   }
 
