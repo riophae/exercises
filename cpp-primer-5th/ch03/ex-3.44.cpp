@@ -37,12 +37,23 @@ void fn3() {
   }
 }
 
+void fn4() {
+  for (const int_array *i = ia; i != ia + 3; i++) {
+    for (const int *j = *i; j != *i + 4; j++) {
+      std::cout << *j << " ";
+    }
+    std::cout << std::endl;
+  }
+}
+
 int main() {
   fn1();
   std::cout << "------" << std::endl;
   fn2();
   std::cout << "------" << std::endl;
   fn3();
+  std::cout << "------" << std::endl;
+  fn4();
   std::cout << "------" << std::endl;
   return 0;
 }
