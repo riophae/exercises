@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iterator>
 
+// using int_array = int[4];
 typedef int int_array[4];
 
 int_array ia[3] = {
