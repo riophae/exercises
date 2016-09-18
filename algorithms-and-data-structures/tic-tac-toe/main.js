@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 const _ = ' '
 const X = 'X'
 const O = 'O'
@@ -66,7 +68,7 @@ class Chessboard {
   }
 
   __checkPos(n) {
-    const temp = n | 0
+    const temp = parseInt(n, 0)
     return (
       temp === n &&
       n >= BEGIN &&
@@ -115,11 +117,11 @@ class Chessboard {
 
   _isEnded() {
     const metaIndexes = from(BEGIN).to(END)
-    const horizontalIndexes = metaIndexes.map((x) => metaIndexes.map((y) => [x, y]))
-    const verticalIndexes = metaIndexes.map((x) => metaIndexes.map((y) => [y, x]))
+    const horizontalIndexes = metaIndexes.map(x => metaIndexes.map(y => [x, y]))
+    const verticalIndexes = metaIndexes.map(x => metaIndexes.map(y => [y, x]))
     const tiltedIndexes = [
-      metaIndexes.map((i) => [i, i]),
-      metaIndexes.map((i) => [i, -i]),
+      metaIndexes.map(i => [i, i]),
+      metaIndexes.map(i => [i, -i]),
     ]
     const arrayOfIndexes = [
       ...horizontalIndexes,

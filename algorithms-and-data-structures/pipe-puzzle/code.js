@@ -1,4 +1,4 @@
-/* eslint-disable no-use-before-define */
+/* eslint-disable no-use-before-define, class-methods-use-this */
 
 let flag = false // indicates whether the puzzle has been solved
 
@@ -49,11 +49,11 @@ class Pipe extends Element {
   }
 
   canPipe(inputDir) {
-    return this.dirs.some((dir) => -dir === inputDir)
+    return this.dirs.some(dir => -dir === inputDir)
   }
 
   getOutputDir(inputDir) {
-    return this.dirs.find((dir) => -dir !== inputDir)
+    return this.dirs.find(dir => -dir !== inputDir)
   }
 }
 
@@ -63,10 +63,10 @@ const DIR_B = -DIR_T
 const DIR_L = -DIR_R
 
 const dirMoveMap = {
-  [DIR_T]: (pos) => new Pos(pos.x - 1, pos.y),
-  [DIR_R]: (pos) => new Pos(pos.x, pos.y + 1),
-  [DIR_B]: (pos) => new Pos(pos.x + 1, pos.y),
-  [DIR_L]: (pos) => new Pos(pos.x, pos.y - 1),
+  [DIR_T]: pos => new Pos(pos.x - 1, pos.y),
+  [DIR_R]: pos => new Pos(pos.x, pos.y + 1),
+  [DIR_B]: pos => new Pos(pos.x + 1, pos.y),
+  [DIR_L]: pos => new Pos(pos.x, pos.y - 1),
 }
 
 const L1 = new Pipe({
@@ -131,7 +131,7 @@ function getRotated(pipe) {
 }
 
 function convertPatternToElement(pattern) {
-  return ELEMENTS.find((pipe) => pipe.getPattern() === pattern)
+  return ELEMENTS.find(pipe => pipe.getPattern() === pattern)
 }
 
 const map = `
@@ -143,7 +143,7 @@ const map = `
 `
 .trim()
 .split('\n')
-.map((row) => row.split('').map(convertPatternToElement))
+.map(row => row.split('').map(convertPatternToElement))
 
 function isOutsideMap(pos) {
   return (
@@ -155,10 +155,10 @@ function isOutsideMap(pos) {
 }
 
 function printMap() {
-  console.log(map.map((row) => row.join('')).join('\n'))
+  console.log(map.map(row => row.join('')).join('\n'))
 }
 
-const book = map.map((row) => row.map(() => false))
+const book = map.map(row => row.map(() => false))
 
 const entryPos = new Pos(0, 0)
 const entryDir = DIR_R

@@ -9,9 +9,9 @@
   "author": "Riophae Lee",
   "devDependencies": {
     "eslint": "^3.4.0",
-    "eslint-config-airbnb-base": "^5.0.3",
+    "eslint-config-airbnb-base": "^7.1.0",
     "eslint-plugin-import": "^1.14.0",
-    "tap": "^5.7.1"
+    "tap": "^7.1.2"
   },
   "engines": {
     "node": ">= 6.0.0"

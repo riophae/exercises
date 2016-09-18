@@ -19,5 +19,5 @@ readable.resume()
 setTimeout(() => {
   // since there are no `data` event handlers attached and no destinations piped to,
   // the data flowed in first two seconds are missed
-  readable.on('data', (data) => process.stdout.write(data))
+  readable.on('data', data => process.stdout.write(data))
 }, 2000)

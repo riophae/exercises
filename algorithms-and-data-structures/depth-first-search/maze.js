@@ -52,7 +52,7 @@ function dfs(currPos, step) {
 
 function main() {
   dfs(entry, 0)
-  const shortestPath = _.minBy(paths, (path) => path.length)
+  const shortestPath = _.minBy(paths, path => path.length)
   console.log(shortestPath.join(' '))
 }
 

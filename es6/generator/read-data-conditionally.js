@@ -4,7 +4,7 @@ const DATA = [4, 2, 5, 3, 5, 5, 1, 1, 1, 3, 3]
 
 const alwaysTrue = () => true
 const alwaysFalse = () => false
-const pickCurr = (acceptFn) => ({ curr }) => acceptFn(curr)
+const pickCurr = acceptFn => ({ curr }) => acceptFn(curr)
 
 function read(idxGenerator) {
   let i
@@ -62,11 +62,11 @@ assert.deepEqual(all, DATA)
 
 const specifiedIndexes = [3, 0]
 const specifiedOnes = read(function* () {
-  yield* specifiedIndexes.map((index) => ({ index }))
+  yield* specifiedIndexes.map(index => ({ index }))
 }())
-assert.deepEqual(specifiedOnes, specifiedIndexes.map((idx) => DATA[idx]))
+assert.deepEqual(specifiedOnes, specifiedIndexes.map(idx => DATA[idx]))
 
-const acceptLessThanThree = (n) => n < 3
+const acceptLessThanThree = n => n < 3
 const onesLessThanThree = read(function* () {
   let i = 0
 

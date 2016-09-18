@@ -39,8 +39,8 @@ const iterable = (function* (limit) {
 const readable = new ToReadable(iterable)
 
 console.log('stand by')
-readable.on('data', (data) => process.stdout.write(data))
-readable.on('data', (data) => console.log(data instanceof Buffer))
+readable.on('data', data => process.stdout.write(data))
+readable.on('data', data => console.log(data instanceof Buffer))
 console.log('`data` event handler has been attached')
 readable.on('end', () => process.stdout.write('DONE\n'))
 console.log('`end` event handler has been attached')

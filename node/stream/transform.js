@@ -33,7 +33,7 @@ class Rotate extends Transform {
 }
 
 const transform = new Rotate(3)
-transform.on('data', (data) => process.stdout.write(data))
+transform.on('data', data => process.stdout.write(data))
 transform.write('hello, ')
 transform.write('world!\n')
 transform.end()

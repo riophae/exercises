@@ -55,7 +55,7 @@ const deepEqual = module.exports = function deepEqual(value, other) {
     const valueKeys = Object.keys(value)
     const otherKeys = Object.keys(other)
     if (valueKeys.length !== otherKeys.length) return false
-    return valueKeys.every((key) => (
+    return valueKeys.every(key => (
       hasOwn(other, key) &&
       deepEqual(value[key], other[key])
     ))

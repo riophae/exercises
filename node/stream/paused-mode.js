@@ -14,7 +14,7 @@ readable._read = function () {
 
 readable.pause() // enter paused mode
 
-readable.on('data', (data) => process.stdout.write(`data: ${data}\n`))
+readable.on('data', data => process.stdout.write(`data: ${data}\n`))
 
 // `readable.read()` will be called after `readable` event handler has been attached
 readable.on('readable', () => {

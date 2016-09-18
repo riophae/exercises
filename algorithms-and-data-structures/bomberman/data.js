@@ -13,6 +13,6 @@ const rawDataStr =
 #GG.GGG#G.GG#
 #############`
 
-const data = rawDataStr.split('\n').map((line) => line.split(''))
+const data = rawDataStr.split('\n').map(line => line.split(''))
 
 module.exports = data
