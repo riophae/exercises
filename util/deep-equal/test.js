@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const test = require('tape')
+const { test } = require('tap')
 const equal = require('./lib')
 
 test('equal', function (t) {
