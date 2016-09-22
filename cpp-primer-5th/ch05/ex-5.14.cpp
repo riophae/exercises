@@ -15,7 +15,7 @@ int find_index(const std::string &word) {
   return -1;
 }
 
-bool is_already_exist(const std::string &word) {
+bool is_already_exists(const std::string &word) {
   return find_index(word) > -1;
 }
 
