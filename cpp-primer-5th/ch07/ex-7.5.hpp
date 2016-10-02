@@ -4,6 +4,6 @@ struct Person {
   std::string name;
   std::string address;
 
-  std::string& getName() { return name; }
-  std::string& getAddress() { return address; }
+  const std::string& getName() const { return name; }
+  const std::string& getAddress() const { return address; }
 };
