@@ -8,9 +8,9 @@
   },
   "author": "Riophae Lee",
   "devDependencies": {
-    "eslint": "^3.4.0",
-    "eslint-config-airbnb-base": "^7.1.0",
-    "eslint-plugin-import": "^1.14.0",
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^2.0.0",
     "tap": "^7.1.2"
   },
   "engines": {
@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "benchmark": "^2.1.1",
-    "lodash": "^4.15.0"
+    "lodash": "^4.16.3"
   }
 }
