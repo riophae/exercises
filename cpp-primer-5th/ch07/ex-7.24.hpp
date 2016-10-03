@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-class Screen  {
+class Screen {
 public:
   using pos = std::string::size_type;
 
