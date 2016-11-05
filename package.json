@@ -8,6 +8,9 @@
   },
   "author": "Riophae Lee",
   "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babelify": "^7.3.0",
+    "budo": "^9.2.1",
     "eslint": "^3.7.0",
     "eslint-config-airbnb-base": "^8.0.0",
     "eslint-plugin-import": "^2.0.0"
