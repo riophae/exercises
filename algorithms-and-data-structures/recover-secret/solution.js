@@ -4,8 +4,9 @@ module.exports = function recoverSecret(triplets) {
   let current = null // current triplet - an array of three chars
   const chars = [0, 1, 2].map(idx => () => current[idx])
   chars.forEach(char => char.isDeciphered = () => deciphered.includes(char()))
-  const charsCurrentTripletDeciphered = () =>
-    chars.reduce((total, char) => total + char.isDeciphered(), 0)
+  const charsInTripletDecipherd = triplet =>
+    triplet.reduce((total, char) => total + deciphered.includes(char), 0)
+  const charsCurrentTripletDeciphered = () => charsInTripletDecipherd(current)
 
   function tryInsert(charX) {
     if (charX.isDeciphered()) {
@@ -68,7 +69,6 @@ module.exports = function recoverSecret(triplets) {
     if (!triplets.length) return
 
     current = triplets.shift()
-
     if (!deciphered.length) {
       deciphered.push(...current)
     } else if (charsCurrentTripletDeciphered() > 0) {
@@ -77,6 +77,10 @@ module.exports = function recoverSecret(triplets) {
         for (let k = 0; k < i; k++) tryInsert(chars[k]).before(chars[i])
       }
     }
+
+    triplets.sort((tripletA, tripletB) =>
+      charsInTripletDecipherd(tripletA) < charsInTripletDecipherd(tripletB)
+    )
 
     if (charsCurrentTripletDeciphered() !== 3) {
       triplets.push(current)
