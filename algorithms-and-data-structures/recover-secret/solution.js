@@ -42,7 +42,7 @@ module.exports = function recoverSecret(triplets) {
       after(charY) {
         if (!charY.isDeciphered()) return
 
-        let canInsert = true
+        let canInsert = false
         const posY = deciphered.indexOf(charY())
 
         if (posY === deciphered.length - 1) {
