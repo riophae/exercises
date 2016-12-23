@@ -176,6 +176,16 @@ class MaxHeap extends Heap {
     super(utils.isGreaterThan, data)
   }
 
+  static createHeap() {
+    return new MaxHeap()
+  }
+
+  static heapify(arr) {
+    const heap = new MaxHeap()
+    arr.forEach(heap.insert.bind(heap))
+    return heap
+  }
+
   findMax() {
     this._checkEmpty('find max')
     return this._peek()
@@ -189,6 +199,25 @@ class MaxHeap extends Heap {
   extractMax() {
     this._checkEmpty('extract max')
     return this._extractRootNode()
+  }
+
+  merge(anotherHeap) {
+    if (!(anotherHeap instanceof MaxHeap)) {
+      throw new Error('The heap provided should be of MaxHeap.')
+    }
+
+    const heap = new MaxHeap(this._data.slice())
+    anotherHeap._data.forEach(heap.insert.bind(heap))
+    return heap
+  }
+
+  meld(anotherHeap) {
+    if (!(anotherHeap instanceof MaxHeap)) {
+      throw new Error('The heap provided should be of MaxHeap.')
+    }
+
+    anotherHeap._data.forEach(this.insert.bind(this))
+    return this
   }
 }
 
