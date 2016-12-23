@@ -143,7 +143,7 @@ class MinHeap extends Heap {
 
   deleteMin() {
     this._checkEmpty('delete min')
-    return this._deleteRootNode()
+    this._removeRootNode()
   }
 
   extractMin() {
@@ -193,7 +193,7 @@ class MaxHeap extends Heap {
 
   deleteMax() {
     this._checkEmpty('delete max')
-    return this._deleteRootNode()
+    this._removeRootNode()
   }
 
   extractMax() {

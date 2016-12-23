@@ -53,6 +53,8 @@ test('MinHeap', (t) => {
     heap.replace(5)
     st.deepEqual(heap.size(), 4)
     st.deepEqual(heap._data, [2, 3, 5, 4])
+    heap.deleteMin()
+    st.deepEqual(heap._data, [3, 4, 5])
 
     st.end()
   })
