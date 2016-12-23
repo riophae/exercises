@@ -1,3 +1,5 @@
+// https://en.wikipedia.org/wiki/Heap_(data_structure)
+
 const utils = {
   getParentIndex(childIdx) {
     return Math.ceil(childIdx / 2) - 1
