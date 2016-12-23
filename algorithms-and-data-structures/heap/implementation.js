@@ -132,7 +132,7 @@ class MinHeap extends Heap {
 
   static heapify(arr) {
     const heap = new MinHeap()
-    arr.forEach(heap.insert.bind(heap))
+    arr.forEach(elem => heap.insert(elem))
     return heap
   }
 
@@ -157,7 +157,7 @@ class MinHeap extends Heap {
     }
 
     const heap = new MinHeap(this._data.slice())
-    anotherHeap._data.forEach(heap.insert.bind(heap))
+    anotherHeap._data.forEach(elem => heap.insert(elem))
     return heap
   }
 
@@ -166,7 +166,7 @@ class MinHeap extends Heap {
       throw new Error('The heap provided should be of MinHeap.')
     }
 
-    anotherHeap._data.forEach(this.insert.bind(this))
+    anotherHeap._data.forEach(elem => this.insert(elem))
     return this
   }
 }
@@ -182,7 +182,7 @@ class MaxHeap extends Heap {
 
   static heapify(arr) {
     const heap = new MaxHeap()
-    arr.forEach(heap.insert.bind(heap))
+    arr.forEach(elem => heap.insert(elem))
     return heap
   }
 
@@ -207,7 +207,7 @@ class MaxHeap extends Heap {
     }
 
     const heap = new MaxHeap(this._data.slice())
-    anotherHeap._data.forEach(heap.insert.bind(heap))
+    anotherHeap._data.forEach(elem => heap.insert(elem))
     return heap
   }
 
@@ -216,7 +216,7 @@ class MaxHeap extends Heap {
       throw new Error('The heap provided should be of MaxHeap.')
     }
 
-    anotherHeap._data.forEach(this.insert.bind(this))
+    anotherHeap._data.forEach(elem => this.insert(elem))
     return this
   }
 }
