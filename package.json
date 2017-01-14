@@ -11,9 +11,9 @@
     "babel-preset-latest": "^6.16.0",
     "babelify": "^7.3.0",
     "budo": "^9.2.1",
-    "eslint": "^3.7.0",
-    "eslint-config-airbnb-base": "^8.0.0",
-    "eslint-plugin-import": "^2.0.0"
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -23,8 +23,8 @@
     "benchmark": "^2.1.1",
     "express": "^4.14.0",
     "jquery": "^3.1.1",
-    "lodash": "^4.16.3",
-    "ramda": "^0.22.1",
-    "tap": "^7.1.2"
+    "lodash": "^4.17.4",
+    "ramda": "^0.23.0",
+    "tap": "^9.0.3"
   }
 }
