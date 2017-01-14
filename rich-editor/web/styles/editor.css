@@ -1,0 +1,29 @@
+.richeditor {}
+
+.richeditor .richeditor-toolbar,
+.richeditor .richeditor-contents {
+  width: 500px;
+  clear: both;
+  display: block;
+}
+
+.richeditor .richeditor-toolbar .richeditor-buttons {
+  padding: 0;
+}
+
+.richeditor .richeditor-toolbar .richeditor-button {
+  list-style: none;
+  float: left;
+  margin: 4px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.richeditor .richeditor-toolbar .richeditor-button:hover {
+  text-decoration: underline;
+}
+
+.richeditor .richeditor-contents {
+  height: 300px;
+  border: 1px solid #dedede;
+}
