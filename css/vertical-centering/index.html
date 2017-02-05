@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>垂直居中 Demo</title>
+    <style>
+      #demo .container { font-size: 0; background: #E0F2F1; text-align: center }
+      #demo .container::after { content: '\U+200B'; display: inline-block; vertical-align: middle; line-height: 300px }
+      #demo .container>* { vertical-align: middle }
+      #demo img { width: 128px }
+      #demo .text { font-size: 16px; margin-left: 10px; padding: 10px }
+      #demo .multi-line-text { display: inline-block; background: #FFF3E0 }
+      #demo .single-line-text { display: inline-block; background: #BBDEFB }
+    </style>
+  </head>
+  <body>
+    <h1>垂直居中 Demo</h1>
+
+    <div id="demo">
+      <div class="container">
+        <img src="../_assets/cat.jpg" />
+        <span class="text multi-line-text">多行<br />文本</span>
+        <span class="text single-line-text">单行文本</span>
+      </div>
+    </div>
+  </body>
+</html>

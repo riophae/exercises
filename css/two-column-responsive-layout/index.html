@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>两栏自适应布局 Demo</title>
+    <style>
+      .sidebar { margin-right: 10px; /* 两栏间距必须在浮动的一栏上设定 */ background: #FFF3E0; width: 200px }
+      .main { background: #E0F2F1 }
+
+      #demo-1 .sidebar { float: left }
+      #demo-1 .main { overflow: hidden /* 触发 BFC，避免内容溢出 */ }
+
+      #demo-2 .sidebar { float: left }
+      #demo-2 .main { display: table-cell; width: 99999px }
+    </style>
+  </head>
+  <body>
+    <h1>两栏自适应布局 Demo</h1>
+
+    <div id="demo-1">
+      <h2>float + overflow:hidden</h2>
+      <div class="sidebar">定宽侧栏</div><!-- 浮动一栏的代码需要放在前面 -->
+      <div class="main">响应式主栏</div>
+    </div>
+
+    <div id="demo-2">
+      <h2>float + display:table-cell</h2>
+      <div class="sidebar">定宽侧栏</div><!-- 浮动一栏的代码需要放在前面 -->
+      <div class="main">响应式主栏</div>
+    </div>
+  </body>
+</html>
