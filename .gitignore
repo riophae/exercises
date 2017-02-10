@@ -3,3 +3,4 @@
 **/*.o
 playground.c
 playground.js
+.vscode
