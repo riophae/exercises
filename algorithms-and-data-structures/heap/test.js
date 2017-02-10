@@ -63,15 +63,15 @@ test('MinHeap', (t) => {
     const heap = new MinHeap()
     st.throws(
       () => heap.findMin(),
-      new Error('Unable to find min: the heap is empty.')
+      new Error('Unable to find min: the heap is empty.'),
     )
     st.throws(
       () => heap.deleteMin(),
-      new Error('Unable to delete min: the heap is empty.')
+      new Error('Unable to delete min: the heap is empty.'),
     )
     st.throws(
       () => heap.extractMin(),
-      new Error('Unable to extract min: the heap is empty.')
+      new Error('Unable to extract min: the heap is empty.'),
     )
 
     st.end()

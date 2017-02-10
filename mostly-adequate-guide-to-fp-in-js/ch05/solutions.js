@@ -73,7 +73,7 @@ test('bonus-2', (t) => {
     append(' is the fastest'),
     prop('name'),
     last,
-    sortBy(prop('horsepower'))
+    sortBy(prop('horsepower')),
   )
 
   const value = fastestCar(CARS)

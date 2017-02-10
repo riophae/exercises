@@ -31,7 +31,7 @@ module.exports = function recoverSecret(triplets) {
               triplet.includes(charX()) &&
               triplet.includes(charBeforeY) &&
               triplet.indexOf(charBeforeY) > triplet.indexOf(charX())
-            ))
+            )),
           )
         }
 
@@ -54,7 +54,7 @@ module.exports = function recoverSecret(triplets) {
               triplet.includes(charX()) &&
               triplet.includes(charAfterY) &&
               triplet.indexOf(charAfterY) < triplet.indexOf(charX())
-            ))
+            )),
           )
         }
 
@@ -79,7 +79,7 @@ module.exports = function recoverSecret(triplets) {
     }
 
     triplets.sort((tripletA, tripletB) =>
-      charsInTripletDecipherd(tripletA) < charsInTripletDecipherd(tripletB)
+      charsInTripletDecipherd(tripletA) < charsInTripletDecipherd(tripletB),
     )
 
     if (charsCurrentTripletDeciphered() !== 3) {

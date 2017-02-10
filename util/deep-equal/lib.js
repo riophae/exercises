@@ -25,7 +25,7 @@ function hasOwn(obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key)
 }
 
-const deepEqual = module.exports = function deepEqual(value, other) {
+const deepEqual = module.exports = function deepEqual(value, other) { // eslint-disable-line no-multi-assign
   if (value === other) return true
   if (value == null || other == null) return value == other // eslint-disable-line eqeqeq
 

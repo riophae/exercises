@@ -1,10 +1,10 @@
 const _ = require('ramda')
 const $ = require('jquery')
 
-const trace = _.curry((tag, x) => {
-  console.log(tag, x)
-  return x
-})
+// const trace = _.curry((tag, x) => {
+//   console.log(tag, x)
+//   return x
+// })
 
 const Impure = {
   getJSON: _.curry((callback, url) => {

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 (function (view) {
   'use strict'
 
@@ -91,4 +93,3 @@
 
   view.RichEditor = RichEditor
 }(window))
-
