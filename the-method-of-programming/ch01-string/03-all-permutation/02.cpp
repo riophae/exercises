@@ -36,5 +36,6 @@ int main() {
   while (calcNextPermutation(str, strlen(str))) {
     std::cout << str << std::endl;
   }
+
   return 0;
 }

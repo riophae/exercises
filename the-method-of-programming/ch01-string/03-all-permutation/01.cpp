@@ -26,5 +26,6 @@ void calcAllPermutation(char *perm, int from, int to) {
 int main() {
   char str[] = "abc";
   calcAllPermutation(str, 0, 2);
+
   return 0;
 }
