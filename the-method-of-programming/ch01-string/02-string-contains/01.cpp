@@ -5,9 +5,9 @@ bool stringContains(const std::string &a, const std::string &b) {
   unsigned int i, j = 0;
   while (j < b.length()) {
     i = 0;
-    while (i < a.length() && a[i] != b[j]) i += 1;
+    while (i < a.length() && a[i] != b[j]) ++i;
     if (i >= a.length()) return false;
-    j += 1;
+    ++j;
   }
   return true;
 }

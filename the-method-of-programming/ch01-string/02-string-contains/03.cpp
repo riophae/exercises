@@ -10,8 +10,8 @@ bool stringContains(const std::string &a, const std::string &b) {
      73,  79,  83,  89,  97,
     101
   };
-
   int product = 1;
+
   for (const char c: a) {
     int x = primes[c - 'a'];
     if (product % x) product *= x;

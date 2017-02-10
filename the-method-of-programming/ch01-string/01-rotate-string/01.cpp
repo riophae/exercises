@@ -3,7 +3,7 @@
 
 void leftShiftOne(char *str, int len) {
   char initial = str[0];
-  for (int i = 1; i < len; i++) {
+  for (int i = 1; i < len; ++i) {
     str[i - 1] = str[i];
   }
   str[len - 1] = initial;
