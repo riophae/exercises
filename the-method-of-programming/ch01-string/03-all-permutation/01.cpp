@@ -6,7 +6,7 @@ void swap(char &a, char &b) {
   b = temp;
 }
 
-void calcAllPermutation(char *perm, int from, int to) {
+void calcAllPermutations(char *perm, int from, int to) {
   if (to <= 1) return;
 
   if (from == to) {
@@ -17,7 +17,7 @@ void calcAllPermutation(char *perm, int from, int to) {
   } else {
     for (int j = from; j <= to; ++j) {
       swap(perm[j], perm[from]);
-      calcAllPermutation(perm, from + 1, to);
+      calcAllPermutations(perm, from + 1, to);
       swap(perm[j], perm[from]);
     }
   }
@@ -25,7 +25,7 @@ void calcAllPermutation(char *perm, int from, int to) {
 
 int main() {
   char str[] = "abc";
-  calcAllPermutation(str, 0, 2);
+  calcAllPermutations(str, 0, 2);
 
   return 0;
 }

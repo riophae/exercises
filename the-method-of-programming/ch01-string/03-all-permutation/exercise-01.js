@@ -1,17 +1,12 @@
 'use strict'
 
-function padZero(str, n) {
-  while (str.length < n) str = '0' + str
-  return str
-}
-
 function convertBase(num, base, len) {
   const digits = []
 
   while (num > 0) {
-    const r = num % base;
+    const r = num % base
     digits.unshift(r)
-    num = (num - r) / base;
+    num = (num - r) / base
   }
 
   while (digits.length < len) {
@@ -21,7 +16,7 @@ function convertBase(num, base, len) {
   return digits
 }
 
-function calcAllPermutation(str) {
+function calcAllPermutations(str) {
   const base = str.length
   const max = base ** base
   let i = 0
@@ -35,7 +30,7 @@ function calcAllPermutation(str) {
 }
 
 function main() {
-  calcAllPermutation('abc')
+  calcAllPermutations('abc')
 }
 
 main()

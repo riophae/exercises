@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-void calcAllPermutation(char *str, const int len) {
+void calcAllPermutations(char *str, const int len) {
   int n = 0;
   const int max = pow(len, len);
 
@@ -28,7 +28,7 @@ void calcAllPermutation(char *str, const int len) {
 
 int main() {
   char str[] = "abc";
-  calcAllPermutation(str, strlen(str));
+  calcAllPermutations(str, strlen(str));
 
   return 0;
 }
