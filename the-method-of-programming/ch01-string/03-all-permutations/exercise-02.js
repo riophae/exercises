@@ -1,6 +1,6 @@
 function calcAllCombinations(str) {
   const base = str.length
-  const max = base * 2 + 1
+  const max = (base * 2) + 1
   let n = 1
 
   while (n <= max) {

@@ -21,7 +21,7 @@ void calcAllCombinations(char *str) {
 
 int main() {
   char str[] = "abc";
-  calcAllCombination(str);
+  calcAllCombinations(str);
 
   return 0;
 }
