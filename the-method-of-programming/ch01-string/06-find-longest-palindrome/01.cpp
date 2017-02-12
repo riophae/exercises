@@ -36,19 +36,25 @@ void findLongestPalindrome(const char *str) {
     }
   }
 
-  std::cout << max << std::endl;
+  std::cout << max << " ";
   if (max_start > -1) {
     for (int i = max_start; i <= max_end; ++i) {
       std::cout << str[i];
     }
-    std::cout << std::endl;
   }
+  std::cout << std::endl;
 }
 
 int main() {
+  findLongestPalindrome("baxae");
+  findLongestPalindrome("axxae");
+  findLongestPalindrome("gbbcxcbbe");
+  findLongestPalindrome("aaaa");
+  findLongestPalindrome("aaa");
+  findLongestPalindrome("a^aa");
+  findLongestPalindrome("aa^a");
   findLongestPalindrome("");
-  findLongestPalindrome("a");
-  findLongestPalindrome("x3abbac");
+  findLongestPalindrome("sator arepo tenet opera rotas");
 
   return 0;
 }
