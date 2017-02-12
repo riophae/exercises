@@ -25,7 +25,7 @@ void findLongestPalindrome(const char *original_str) {
       p[i] = 1;
     }
 
-    while (i - p[i] > 0 && i + p[i] < len && str[i - p[i]] == str[i + p[i]]) {
+    while (str[i - p[i]] == str[i + p[i]]) {
       ++p[i];
     }
 
