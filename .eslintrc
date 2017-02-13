@@ -18,6 +18,7 @@
     "no-restricted-syntax": 0,
     "no-multi-assign": 0,
     "max-len": 0,
-    "no-bitwise": 0
+    "no-bitwise": 0,
+    "no-mixed-operators": 0
   }
 }
