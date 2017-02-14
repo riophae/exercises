@@ -103,6 +103,14 @@ function main() {
     text: 'Riophae Lee',
     pattern: '*',
     expected: 'Riophae Lee',
+  }, {
+    text: 'abc',
+    pattern: '**',
+    expected: 'abc',
+  }, {
+    text: 'abc',
+    pattern: '**??**??**',
+    expected: null,
   }]
 
   data.forEach(({ text, pattern, expected }) => {
