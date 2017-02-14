@@ -2,9 +2,10 @@
 #include <iostream>
 #include <cmath>
 
-void calcAllPermutations(char *str, const int len) {
+void calcAllPermutations(const char *str, const int len) {
   int n = 0;
   const int max = pow(len, len);
+  char *digits = new char[len];
 
   while (n < max) {
     int i = n;
@@ -12,18 +13,21 @@ void calcAllPermutations(char *str, const int len) {
 
     while (i > 0) {
       const int r = i % len;
-      std::cout << str[r];
+      digits[len - j - 1] = str[r];
       i = (i - r) / len;
       ++j;
     }
 
-    while (j++ < len) {
-      std::cout << str[0];
+    while (j < len) {
+      digits[len - j - 1] = str[0];
+      ++j;
     }
 
-    std::cout << std::endl;
+    std::cout << digits << " ";
     ++n;
   }
+
+  std::cout << std::endl;
 }
 
 int main() {
