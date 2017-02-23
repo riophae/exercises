@@ -12,3 +12,22 @@ a. ![T_{1}(N) + T_{2}(N) = O(f(N))](https://latex.codecogs.com/gif.latex?T_%7B1%
 b. ![T_{1}(N) - T_{2}(N) = o(f(N))](https://latex.codecogs.com/gif.latex?T_%7B1%7D%28N%29%20-%20T_%7B2%7D%28N%29%20%3D%20o%28f%28N%29%29) ×  
 c. ![\frac{T_1(N)}{T_2(N)} = O(1)](https://latex.codecogs.com/gif.latex?%5Cfrac%7BT_1%28N%29%7D%7BT_2%28N%29%7D%20%3D%20O%281%29) ×  
 d. ![T_1(N)=O(T_2(N))](https://latex.codecogs.com/gif.latex?T_1%28N%29%3DO%28T_2%28N%29%29) ×  
+
+#### 2.10
+
+考虑下述算法（称为 Horner 法则）。计算 ![F(X)=\sum_{i=0}^{N}A_iX^i](https://latex.codecogs.com/gif.latex?%5Cinline%20F%28X%29%3D%5Csum_%7Bi%3D0%7D%5E%7BN%7DA_iX%5Ei)的值：
+
+```
+Poly = 0
+for (i = N; i >= 0; i--)
+  Poly = X * Poly + A[i]
+```
+
+a. 对 ![X=3](https://latex.codecogs.com/gif.latex?%5Cinline%20X%3D3)，![F(X)=4X^4+8X^3+X+2](https://latex.codecogs.com/gif.latex?%5Cinline%20F%28X%29%3D4X%5E4&plus;8X%5E3&plus;X&plus;2) 指出该算法的各步是如何进行的。  
+b. 解释该算法为什么能够解决这个问题。  
+c. 该算法的运行时间是多少？
+
+**解答：**  
+a. 设 `A[N] = { 2, 1, 0, 8, 4 }` 并执行上面的程序即可求解。  
+b. 将待求解式子中从常数项到最高项系数依次放入数组 `A[N]` 中（包括系数为 `0` 的项）。该算法会在迭代过程中反复乘以 `X`，次数越高的项乘 `X` 的次数越多，最终便能得到各项之和。  
+c. ![O(N)](https://latex.codecogs.com/gif.latex?%5Cinline%20O%28N%29)
