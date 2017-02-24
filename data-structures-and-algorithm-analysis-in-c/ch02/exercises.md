@@ -35,3 +35,13 @@ c. ![O(N)](https://latex.codecogs.com/gif.latex?%5Cinline%20O%28N%29)
 #### 2.11
 
 给出一个有效的算法来确定在整数 ![A_1<A_2<A_3<...<A_N](https://latex.codecogs.com/gif.latex?%5Cinline%20A_1%3CA_2%3CA_3%3C...%3CA_N) 的数组中是否存在整数 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i) 使得 ![A_i=i](https://latex.codecogs.com/gif.latex?%5Cinline%20A_i%3Di)。你的算法的运行时间是多少？
+
+#### 2.12
+
+给出有效的算法（及其运行时间分析）：  
+a. 求最小子序列和。  
+b. 求最小的正子序列和。  
+c. 求最大子序列乘积。
+
+**一些参考资料：**  
+- http://stackoverflow.com/q/31640902/4617270
