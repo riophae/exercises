@@ -31,3 +31,7 @@ c. 该算法的运行时间是多少？
 a. 设 `A[N] = { 2, 1, 0, 8, 4 }` 并执行上面的程序即可求解。  
 b. 将待求解式子中从常数项到最高项系数依次放入数组 `A[N]` 中（包括系数为 `0` 的项）。该算法会在迭代过程中反复乘以 `X`，次数越高的项乘 `X` 的次数越多，最终便能得到各项之和。  
 c. ![O(N)](https://latex.codecogs.com/gif.latex?%5Cinline%20O%28N%29)
+
+#### 2.11
+
+给出一个有效的算法来确定在整数 ![A_1<A_2<A_3<...<A_N](https://latex.codecogs.com/gif.latex?%5Cinline%20A_1%3CA_2%3CA_3%3C...%3CA_N) 的数组中是否存在整数 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i) 使得 ![A_i=i](https://latex.codecogs.com/gif.latex?%5Cinline%20A_i%3Di)。你的算法的运行时间是多少？
