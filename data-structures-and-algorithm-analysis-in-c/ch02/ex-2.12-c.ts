@@ -2,12 +2,10 @@
 
 const assert = require('assert')
 
-function maxSubSequenceProduct(values: ReadonlyArray<number>): number {
-  if (values.length === 0) return 0
-  if (values.length === 1) return Math.max(values[0], 0)
+function _maxSubSequenceProduct(values: ReadonlyArray<number>): number {
+  if (values.length === 1) return values[0]
 
   let product = 1
-  let maxProductOfRest = 0
   let firstNegativeProduct = 0
   let lastNegativeProduct = 0
   let i
@@ -15,35 +13,44 @@ function maxSubSequenceProduct(values: ReadonlyArray<number>): number {
   for (i = 0; i < values.length; i++) {
     const value = values[i]
 
-    if (value === 0) {
-      product = i === 0 ? 0 : product;
-      maxProductOfRest = maxSubSequenceProduct(values.slice(i + 1))
-      break
-    } else {
-      product *= value
+    product *= value
 
-      if (lastNegativeProduct !== 0) {
-        lastNegativeProduct *= value
-      }
+    if (lastNegativeProduct !== 0) {
+      lastNegativeProduct *= value
+    }
 
-      if (value < 0) {
-        if (firstNegativeProduct === 0) {
-          firstNegativeProduct = product
-        }
-        lastNegativeProduct = value
+    if (value < 0) {
+      if (firstNegativeProduct === 0) {
+        firstNegativeProduct = product
       }
+      lastNegativeProduct = value
     }
   }
 
-  if (product < 0) {
-    if (i > 1 && lastNegativeProduct !== 0) {
-      product /= Math.max(firstNegativeProduct, lastNegativeProduct)
-    } else {
-      product = 0
-    }
+  if (product < 0 && values.length > 1 && lastNegativeProduct !== 0) {
+    product /= Math.max(firstNegativeProduct, lastNegativeProduct)
   }
 
-  return Math.max(product, maxProductOfRest)
+  return product
+}
+
+function maxSubSequenceProduct(values: ReadonlyArray<number>): number {
+  let i = 0
+  let start = -1
+  let end
+  const products = [0]
+
+  while (i < values.length && values[i] === 0) i++
+  start = i
+
+  while (i < values.length) {
+    while (i < values.length && values[i] !== 0) end = ++i
+    products.push(_maxSubSequenceProduct(values.slice(start, end)))
+    while (i + 1 < values.length && values[i + 1] === 0) i++
+    start = ++i
+  }
+
+  return Math.max(...products)
 }
 
 function main() {
@@ -60,7 +67,7 @@ function main() {
     values: [-1, 0, -1],
     expected: 0,
   }, {
-    values: [5, 2, 7, 1, -2, 0, -1, 4, 9, 1, 2],
+    values: [5, 2, 7, 1, -2, 0, 0, -1, 4, 9, 1, 2],
     expected: 72,
   }, {
     values: [1, -1],
