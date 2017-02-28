@@ -45,3 +45,13 @@ c. 求最大子序列乘积。
 
 **参考资料：**  
 - http://stackoverflow.com/q/31640902/4617270
+- http://www.geeksforgeeks.org/maximum-product-subarray/
+
+#### 2.13
+
+a. 编写一个程序来确定正整数 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 是否是素数。  
+b. 你的程序在最坏的情况下的运行时间是多少（用 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 表示）？（你应该能够写出 ![O(\sqrt{N})](https://latex.codecogs.com/gif.latex?%5Cinline%20O%28%5Csqrt%7BN%7D%29) 的算法程序。）  
+c. 令 ![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 等于 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的二进制表示法中的位数。![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 的值是多少？  
+d. 你的程序在最坏情形下的运行时间是什么（用 ![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 表示）？  
+e. 比较确定一个 20（二进制）位的数是否是素数和确定一个 40（二进制）位的数是否是素数的运行时间。  
+f. 用 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 或 ![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 给出运行时间更合理吗？为什么？
