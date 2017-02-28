@@ -6,6 +6,9 @@
       "es2017",
       "dom"
     ],
+    "types": [
+      "node"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "isolatedModules": false,
