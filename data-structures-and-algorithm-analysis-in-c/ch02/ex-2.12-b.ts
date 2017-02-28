@@ -43,27 +43,27 @@ function minPositiveSequenceSum(values: number[]): number {
 
   let minPositiveSequence = minPositive
   const offset = -minSequence
-  const initialSequence: boolean[] = new Array(maxSequence + offset + 1)
+  const initialSequence: {[index: number]: boolean} = {}
   let valueCumulative = 0
 
   for (let k = 0; k < indexFirstNegative; k++) {
     const value = values[k]
     valueCumulative += value
-    initialSequence[offset + valueCumulative] = true
+    initialSequence[valueCumulative] = true
   }
 
   for (let k = indexFirstNegative; k < values.length; k++) {
     const value = values[k]
 
     valueCumulative += value
-    initialSequence[offset + valueCumulative] = true
+    initialSequence[valueCumulative] = true
 
-    const indexHigh = valueCumulative + offset - 1
-    const indexLow = Math.max(0, valueCumulative + offset - minPositiveSequence + 1)
+    const indexHigh = valueCumulative - 1
+    const indexLow = valueCumulative - minPositiveSequence + 1
 
     for (let index = indexHigh; index >= indexLow; index--) {
       if (initialSequence[index]) {
-        minPositiveSequence = valueCumulative - index + offset
+        minPositiveSequence = valueCumulative - index
 
         if (minPositiveSequence === 1) {
           return minPositiveSequence
@@ -78,7 +78,7 @@ function minPositiveSequenceSum(values: number[]): number {
 }
 
 function main() {
-  const arr = [6, -100, 30, -2, -1, 0, 6, -2]
+  const arr: number[] = [2, -3, 6, -2, -100, 100, 30, -2, -1, 0, 6, -2]
   console.log(minPositiveSequenceSum(arr))
 }
 
