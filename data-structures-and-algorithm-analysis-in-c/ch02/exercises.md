@@ -74,3 +74,11 @@ Eratosthenes 筛是一种用于计算小于 ![N](https://latex.codecogs.com/gif.
 #### 2.16
 
 不用递归，写出快速求幂的程序。
+
+
+#### 2.17
+
+给出用于快速取幂运算中的乘法次数的精确计数。（提示：考虑 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的二进制表示）
+
+**解答：**  
+当 ![N=0](https://latex.codecogs.com/gif.latex?%5Cinline%20N%3D0) 或 ![N=1](https://latex.codecogs.com/gif.latex?%5Cinline%20N%3D1) 时，乘法次数为 0。当 ![N>1](https://latex.codecogs.com/gif.latex?%5Cinline%20N%3E1) 时，若 ![b(N)](https://latex.codecogs.com/gif.latex?%5Cinline%20b%28N%29) 为 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的二进制表示中数字 1 的个数，则乘法次数为 ![\left \lfloor logN \right \rfloor + b(N) - 1](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cleft%20%5Clfloor%20logN%20%5Cright%20%5Crfloor%20&plus;%20b%28N%29%20-%201)。
