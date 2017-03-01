@@ -59,3 +59,7 @@ f. 用 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 或 ![B](https:/
 **解答：**  
 c. ![B=log_2N](https://latex.codecogs.com/gif.latex?%5Cinline%20B%3Dlog_2N)  
 d. ![O(2^{B/2})](https://latex.codecogs.com/gif.latex?%5Cinline%20O%282%5E%7BB/2%7D%29) （为什么？）  
+
+#### 2.14
+
+Eratosthenes 筛是一种用于计算小于 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的所有素数的方法。我们从制作整数 ![2](https://latex.codecogs.com/gif.latex?%5Cinline%202) 到 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的表开始。我们找出最小的未被删除的整数 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i)，打印 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i)，然后删除 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i)，![2i](https://latex.codecogs.com/gif.latex?%5Cinline%202i)，![3i](https://latex.codecogs.com/gif.latex?%5Cinline%203i)，……。当 ![i>\sqrt{N}](https://latex.codecogs.com/gif.latex?%5Cinline%20i%3E%5Csqrt%7BN%7D) 时，算法终止。该算法的运行时间是多少？
