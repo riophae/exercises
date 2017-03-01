@@ -20,7 +20,7 @@ int binarySearch(const int *arr, const int x, const int n) {
 
 int main() {
   const int arr[] = { 1, 10, 24, 44, 70, 99, 128, 300 };
-  std::cout << binarySearch(arr, 128, 8) << std::endl;
+  std::cout << binarySearch(arr, 300, sizeof(arr) / sizeof(arr[0])) << std::endl;
 
   return 0;
 }
