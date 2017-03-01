@@ -82,3 +82,10 @@ Eratosthenes 筛是一种用于计算小于 ![N](https://latex.codecogs.com/gif.
 
 **解答：**  
 当 ![N=0](https://latex.codecogs.com/gif.latex?%5Cinline%20N%3D0) 或 ![N=1](https://latex.codecogs.com/gif.latex?%5Cinline%20N%3D1) 时，乘法次数为 0。当 ![N>1](https://latex.codecogs.com/gif.latex?%5Cinline%20N%3E1) 时，若 ![b(N)](https://latex.codecogs.com/gif.latex?%5Cinline%20b%28N%29) 为 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的二进制表示中数字 1 的个数，则乘法次数为 ![\left \lfloor logN \right \rfloor + b(N) - 1](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cleft%20%5Clfloor%20logN%20%5Cright%20%5Crfloor%20&plus;%20b%28N%29%20-%201)。
+
+#### 2.20
+
+为什么在我们的计算机模型中假设整数具有固定长度是重要的？
+
+**解答：**  
+因为这样可以非常高效地访问指定内存地址上存储的值。
