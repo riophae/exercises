@@ -70,3 +70,7 @@ Eratosthenes 筛是一种用于计算小于 ![N](https://latex.codecogs.com/gif.
 
 **解答：**  
 依次求出 ![X^{2}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B2%7D)，![X^{4}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B4%7D)，![X^{5}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B5%7D)，![X^{10}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B10%7D)，![X^{20}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B20%7D)，![X^{40}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B40%7D)，![X^{60}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B60%7D)， 最终算出 ![X^{62}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B62%7D)。
+
+#### 2.16
+
+不用递归，写出快速求幂的程序。
