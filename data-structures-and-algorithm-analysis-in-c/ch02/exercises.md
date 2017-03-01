@@ -63,3 +63,10 @@ d. ![O(2^{B/2})](https://latex.codecogs.com/gif.latex?%5Cinline%20O%282%5E%7BB/2
 #### 2.14
 
 Eratosthenes 筛是一种用于计算小于 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的所有素数的方法。我们从制作整数 ![2](https://latex.codecogs.com/gif.latex?%5Cinline%202) 到 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 的表开始。我们找出最小的未被删除的整数 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i)，打印 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i)，然后删除 ![i](https://latex.codecogs.com/gif.latex?%5Cinline%20i)，![2i](https://latex.codecogs.com/gif.latex?%5Cinline%202i)，![3i](https://latex.codecogs.com/gif.latex?%5Cinline%203i)，……。当 ![i>\sqrt{N}](https://latex.codecogs.com/gif.latex?%5Cinline%20i%3E%5Csqrt%7BN%7D) 时，算法终止。该算法的运行时间是多少？
+
+#### 2.15
+
+证明 ![X^{62}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B62%7D) 可以只用 8 次乘法算出。
+
+**解答：**  
+依次求出 ![X^{2}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B2%7D)，![X^{4}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B4%7D)，![X^{5}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B5%7D)，![X^{10}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B10%7D)，![X^{20}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B20%7D)，![X^{40}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B40%7D)，![X^{60}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B60%7D)， 最终算出 ![X^{62}](https://latex.codecogs.com/gif.latex?%5Cinline%20X%5E%7B62%7D)。
