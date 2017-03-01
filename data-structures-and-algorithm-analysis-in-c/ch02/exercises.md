@@ -55,3 +55,7 @@ c. 令 ![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 等于 ![N](http
 d. 你的程序在最坏情形下的运行时间是什么（用 ![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 表示）？  
 e. 比较确定一个 20（二进制）位的数是否是素数和确定一个 40（二进制）位的数是否是素数的运行时间。  
 f. 用 ![N](https://latex.codecogs.com/gif.latex?%5Cinline%20N) 或 ![B](https://latex.codecogs.com/gif.latex?%5Cinline%20B) 给出运行时间更合理吗？为什么？
+
+**解答：**  
+c. ![B=log_2N](https://latex.codecogs.com/gif.latex?%5Cinline%20B%3Dlog_2N)  
+d. ![O(2^{B/2})](https://latex.codecogs.com/gif.latex?%5Cinline%20O%282%5E%7BB/2%7D%29) （为什么？）  
