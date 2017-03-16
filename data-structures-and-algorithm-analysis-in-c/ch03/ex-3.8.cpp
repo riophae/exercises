@@ -148,9 +148,9 @@ PolynomialPow(const List P, const int Exponent) {
 
 int
 main() {
-  std::vector<std::vector<int>> Args = { { 1, 2 }, { 3, 9 }, { 4, 10 } };
+  std::vector<std::vector<int>> ArgList = { { 1, 2 }, { 3, 9 }, { 4, 10 } };
 
-  List P = MakePolynomialList(Args);
+  List P = MakePolynomialList(ArgList);
 
   List PResult = PolynomialPow(P, 3);
   PrintList(PResult);

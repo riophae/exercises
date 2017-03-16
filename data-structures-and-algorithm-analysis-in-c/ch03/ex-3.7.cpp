@@ -73,11 +73,11 @@ PrintList(List L) {
 
 int
 main() {
-  std::vector<std::vector<int>> ArgsA = { { 0, 1 }, { 2, 3 }, { 10, 2 } };
-  std::vector<std::vector<int>> ArgsB = { { 0, 2 }, { 1, 4 }, { 2, 3 }, { 4, 3 } };
+  std::vector<std::vector<int>> ArgListA = { { 0, 1 }, { 2, 3 }, { 10, 2 } };
+  std::vector<std::vector<int>> ArgListB = { { 0, 2 }, { 1, 4 }, { 2, 3 }, { 4, 3 } };
 
-  List PA = MakePolynomialList(ArgsA);
-  List PB = MakePolynomialList(ArgsB);
+  List PA = MakePolynomialList(ArgListA);
+  List PB = MakePolynomialList(ArgListB);
   List PResult = MakeNode();
 
   Position P = First(PA), Q;
